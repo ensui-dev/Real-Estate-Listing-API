@@ -41,7 +41,7 @@ const Dashboard = () => {
       <div className="mb-8">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-gray-900">Meus Imóveis</h2>
-          <Link to="/properties/create" className="btn-primary flex items-center space-x-2">
+          <Link to="/properties/add" className="btn-primary flex items-center space-x-2">
             <FaPlus />
             <span>Adicionar Imóvel</span>
           </Link>
@@ -58,7 +58,7 @@ const Dashboard = () => {
         ) : (
           <div className="card text-center py-12">
             <p className="text-gray-600 mb-4">Ainda não tem imóveis anunciados</p>
-            <Link to="/properties/create" className="btn-primary inline-block">
+            <Link to="/properties/add" className="btn-primary inline-block">
               Adicionar Primeiro Imóvel
             </Link>
           </div>
