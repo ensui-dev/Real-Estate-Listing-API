@@ -17,6 +17,7 @@ import Properties from './pages/Properties';
 import Agents from './pages/Agents';
 import Agencies from './pages/Agencies';
 import Dashboard from './pages/Dashboard';
+import AddProperty from './pages/AddProperty';
 import NotFound from './pages/NotFound';
 
 // Routes
@@ -54,6 +55,7 @@ function App() {
                 {/* Protected routes */}
                 <Route element={<PrivateRoute />}>
                   <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/properties/add" element={<AddProperty />} />
                 </Route>
 
                 {/* Admin routes */}
