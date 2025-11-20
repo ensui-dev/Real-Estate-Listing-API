@@ -14,6 +14,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Properties from './pages/Properties';
+import Agents from './pages/Agents';
+import Agencies from './pages/Agencies';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 
@@ -46,6 +48,8 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/properties" element={<Properties />} />
+                <Route path="/agents" element={<Agents />} />
+                <Route path="/agencies" element={<Agencies />} />
 
                 {/* Protected routes */}
                 <Route element={<PrivateRoute />}>
