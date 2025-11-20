@@ -14,6 +14,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Properties from './pages/Properties';
+import PropertyDetail from './pages/PropertyDetail';
 import Agents from './pages/Agents';
 import Agencies from './pages/Agencies';
 import Dashboard from './pages/Dashboard';
@@ -49,6 +50,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/properties" element={<Properties />} />
+                <Route path="/properties/:id" element={<PropertyDetail />} />
                 <Route path="/agents" element={<Agents />} />
                 <Route path="/agencies" element={<Agencies />} />
 
