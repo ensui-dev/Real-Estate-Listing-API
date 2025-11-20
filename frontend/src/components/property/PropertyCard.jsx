@@ -58,6 +58,22 @@ const PropertyCard = ({ property, onFavorite, isFavorite = false }) => {
 
       {/* Content */}
       <div className="p-4">
+        {/* Approval Status Badge */}
+        {property.approvalStatus === 'pending' && (
+          <div className="mb-3">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 border border-yellow-300">
+              ⏳ Aguardando Aprovação
+            </span>
+          </div>
+        )}
+        {property.approvalStatus === 'rejected' && (
+          <div className="mb-3">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 border border-red-300">
+              ❌ Rejeitado
+            </span>
+          </div>
+        )}
+
         {/* Price */}
         <div className="mb-2">
           <span className="text-2xl font-bold text-primary-600">
