@@ -59,9 +59,9 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const response = await authAPI.login({ email, password });
-      if (response.success && response.token) {
-        localStorage.setItem('token', response.token);
-        setUser(response.user);
+      if (response.success && response.data && response.data.token) {
+        localStorage.setItem('token', response.data.token);
+        setUser(response.data);
         setIsAuthenticated(true);
         return { success: true };
       }
@@ -74,9 +74,9 @@ export const AuthProvider = ({ children }) => {
   const register = async (userData) => {
     try {
       const response = await authAPI.register(userData);
-      if (response.success && response.token) {
-        localStorage.setItem('token', response.token);
-        setUser(response.user);
+      if (response.success && response.data && response.data.token) {
+        localStorage.setItem('token', response.data.token);
+        setUser(response.data);
         setIsAuthenticated(true);
         return { success: true };
       }
