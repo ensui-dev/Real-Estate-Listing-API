@@ -69,32 +69,23 @@ const ImageUpload = ({ images, onChange, maxImages = 10 }) => {
         }
       });
 
-      console.log('Upload response:', response);
-      console.log('Response data:', response.data);
-      console.log('Success:', response.data.success);
-      console.log('Data array:', response.data.data);
-
-      if (response.data.success) {
-        const newImages = response.data.data.map((img, index) => ({
+      // Axios interceptor already unwraps response.data
+      // So 'response' is { success, message, data }
+      // and 'response.data' is the array of images
+      if (response.success) {
+        const newImages = response.data.map((img, index) => ({
           url: img.url,
           key: img.key,
           caption: '',
-          isPrimary: images.length === 0 && index === 0 // First image is primary if no images exist
+          isPrimary: images.length === 0 && index === 0
         }));
-
-        console.log('New images created:', newImages);
-        console.log('Current images:', images);
-        console.log('Combined images:', [...images, ...newImages]);
 
         onChange([...images, ...newImages]);
         toast.success(`${files.length} imagem(ns) carregada(s) com sucesso!`);
-      } else {
-        console.error('Upload failed - success is false');
       }
     } catch (error) {
       console.error('Upload error:', error);
-      console.error('Error response:', error.response);
-      toast.error(error.response?.data?.message || 'Erro ao carregar imagens');
+      toast.error(error.message || 'Erro ao carregar imagens');
     } finally {
       setUploading(false);
       setUploadProgress({});
