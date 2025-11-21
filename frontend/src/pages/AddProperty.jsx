@@ -119,6 +119,18 @@ const AddProperty = () => {
           return false;
         }
         break;
+      case 5:
+        if (!formData.images || formData.images.length === 0) {
+          toast.error('Por favor carregue pelo menos uma imagem do imóvel');
+          return false;
+        }
+        // Verify all images have valid URLs
+        const validImages = formData.images.filter(img => img.url && img.url.trim() !== '');
+        if (validImages.length === 0) {
+          toast.error('Por favor carregue pelo menos uma imagem do imóvel');
+          return false;
+        }
+        break;
     }
     return true;
   };
