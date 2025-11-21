@@ -21,6 +21,14 @@ import Dashboard from './pages/Dashboard';
 import AddProperty from './pages/AddProperty';
 import NotFound from './pages/NotFound';
 
+// Static Pages
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Pricing from './pages/Pricing';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
+import Cookies from './pages/Cookies';
+
 // Admin Pages
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProperties from './pages/admin/AdminProperties';
@@ -59,6 +67,14 @@ function App() {
                 <Route path="/properties/:id" element={<PropertyDetail />} />
                 <Route path="/agents" element={<Agents />} />
                 <Route path="/agencies" element={<Agencies />} />
+
+                {/* Static pages */}
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/cookies" element={<Cookies />} />
 
                 {/* Protected routes */}
                 <Route element={<PrivateRoute />}>
