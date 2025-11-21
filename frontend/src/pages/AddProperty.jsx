@@ -145,9 +145,24 @@ const AddProperty = () => {
     setCurrentStep(prev => Math.max(prev - 1, 1));
   };
 
+  const handleKeyDown = (e) => {
+    // Prevent Enter key from submitting form on steps 1-4
+    if (e.key === 'Enter' && currentStep !== 5 && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      nextStep();
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Only allow submission on the final step (step 5)
+    if (currentStep !== 5) {
+      nextStep(); // If not on final step, just go to next step
+      return;
+    }
+
+    // Validate step 5 (images)
     if (!validateStep(currentStep)) return;
 
     try {
@@ -235,7 +250,7 @@ const AddProperty = () => {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-sm p-6">
+        <form onSubmit={handleSubmit} onKeyDown={handleKeyDown} className="bg-white rounded-lg shadow-sm p-6">
           {/* Step 1: Basic Info */}
           {currentStep === 1 && (
             <div className="space-y-6">
@@ -595,9 +610,12 @@ const AddProperty = () => {
           {currentStep === 5 && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Imagens</h2>
-                <p className="text-gray-600 mb-6">
-                  Carregue fotos do imóvel. A primeira imagem será definida como principal.
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">Imagens *</h2>
+                <p className="text-gray-600 mb-2">
+                  <span className="font-semibold text-red-600">Obrigatório:</span> Carregue pelo menos uma foto do imóvel.
+                </p>
+                <p className="text-sm text-gray-500 mb-6">
+                  A primeira imagem será definida como principal. Máximo de 10 imagens (5MB cada).
                 </p>
               </div>
 
@@ -606,6 +624,14 @@ const AddProperty = () => {
                 onChange={handleImagesChange}
                 maxImages={10}
               />
+
+              {formData.images.length === 0 && (
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                  <p className="text-sm text-yellow-800">
+                    ⚠️ Você precisa carregar pelo menos uma imagem antes de criar o imóvel.
+                  </p>
+                </div>
+              )}
             </div>
           )}
 
@@ -633,8 +659,9 @@ const AddProperty = () => {
               ) : (
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="btn-primary"
+                  disabled={loading || formData.images.length === 0}
+                  className={`btn-primary ${formData.images.length === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  title={formData.images.length === 0 ? 'Carregue pelo menos uma imagem para continuar' : ''}
                 >
                   {loading ? 'A criar...' : 'Criar Imóvel'}
                 </button>
