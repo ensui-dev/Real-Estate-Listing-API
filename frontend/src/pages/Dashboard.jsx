@@ -52,7 +52,7 @@ const Dashboard = () => {
         ) : properties.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {properties.map(property => (
-              <PropertyCard key={property._id} property={property} />
+              <PropertyCard key={property._id} property={property} showApprovalStatus={true} />
             ))}
           </div>
         ) : (

@@ -5,7 +5,7 @@ import { formatCurrency, getEnergyRatingColor } from '../../utils/imtCalculator'
 import { getPropertyStatusLabel, getPropertyStatusBadge } from '../../utils/helpers';
 import clsx from 'clsx';
 
-const PropertyCard = ({ property, onFavorite, isFavorite = false }) => {
+const PropertyCard = ({ property, onFavorite, isFavorite = false, showApprovalStatus = false }) => {
   const primaryImage = property.images?.find(img => img.isPrimary)?.url ||
                        property.images?.[0]?.url ||
                        '/placeholder-property.jpg';
@@ -58,15 +58,15 @@ const PropertyCard = ({ property, onFavorite, isFavorite = false }) => {
 
       {/* Content */}
       <div className="p-4">
-        {/* Approval Status Badge */}
-        {property.approvalStatus === 'pending' && (
+        {/* Approval Status Badge - Only show when explicitly enabled (e.g., on Dashboard) */}
+        {showApprovalStatus && property.approvalStatus === 'pending' && (
           <div className="mb-3">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 border border-yellow-300">
               ⏳ Aguardando Aprovação
             </span>
           </div>
         )}
-        {property.approvalStatus === 'rejected' && (
+        {showApprovalStatus && property.approvalStatus === 'rejected' && (
           <div className="mb-3">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 border border-red-300">
               ❌ Rejeitado
