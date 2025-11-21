@@ -5,12 +5,15 @@ const {
   deleteImage
 } = require('../controllers/uploadController');
 const { protect } = require('../middleware/auth');
-const { upload, handleUploadError } = require('../middleware/upload');
+const { upload, handleUploadError, checkAWSConfig } = require('../middleware/upload');
 
 const router = express.Router();
 
 // All upload routes require authentication
 router.use(protect);
+
+// Check AWS configuration before allowing uploads
+router.use(checkAWSConfig);
 
 // Upload multiple property images
 router.post(

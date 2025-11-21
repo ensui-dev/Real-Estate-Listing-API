@@ -4,14 +4,35 @@ const { S3Client } = require('@aws-sdk/client-s3');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 
-// Initialize S3 Client
-const s3Client = new S3Client({
-  region: process.env.AWS_REGION || 'us-east-1',
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+// Validate AWS configuration
+const validateAWSConfig = () => {
+  const required = ['AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY', 'AWS_S3_BUCKET_NAME'];
+  const missing = required.filter(key => !process.env[key]);
+
+  if (missing.length > 0) {
+    throw new Error(
+      `Missing AWS configuration: ${missing.join(', ')}. ` +
+      'Please set up your .env file with AWS credentials. ' +
+      'See AWS_S3_SETUP_GUIDE.md for instructions.'
+    );
   }
-});
+};
+
+// Initialize S3 Client
+let s3Client;
+try {
+  validateAWSConfig();
+  s3Client = new S3Client({
+    region: process.env.AWS_REGION || 'us-east-1',
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    }
+  });
+} catch (error) {
+  console.error('AWS S3 Configuration Error:', error.message);
+  s3Client = null; // Will be caught in the upload middleware
+}
 
 // File filter - only allow images
 const fileFilter = (req, file, cb) => {
@@ -54,6 +75,15 @@ const upload = multer({
 
 // Error handling middleware
 const handleUploadError = (err, req, res, next) => {
+  // Check for AWS configuration errors
+  if (err.message && err.message.includes('Missing AWS configuration')) {
+    return res.status(503).json({
+      success: false,
+      message: 'AWS S3 is not configured. Please contact administrator.',
+      error: process.env.NODE_ENV === 'development' ? err.message : undefined
+    });
+  }
+
   if (err instanceof multer.MulterError) {
     if (err.code === 'LIMIT_FILE_SIZE') {
       return res.status(400).json({
@@ -90,7 +120,22 @@ const handleUploadError = (err, req, res, next) => {
   });
 };
 
+// Middleware to check AWS configuration before uploads
+const checkAWSConfig = (req, res, next) => {
+  if (!s3Client) {
+    return res.status(503).json({
+      success: false,
+      message: 'Image upload service is not configured. Please set up AWS S3 credentials.',
+      error: process.env.NODE_ENV === 'development'
+        ? 'Missing AWS credentials in .env file. See AWS_S3_SETUP_GUIDE.md'
+        : undefined
+    });
+  }
+  next();
+};
+
 module.exports = {
   upload,
-  handleUploadError
+  handleUploadError,
+  checkAWSConfig
 };
