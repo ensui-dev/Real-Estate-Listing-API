@@ -29,8 +29,11 @@ try {
       secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
     }
   });
+  console.log('✅ AWS S3 Client initialized successfully');
+  console.log('📍 Region:', process.env.AWS_REGION || 'us-east-1');
+  console.log('🪣 Bucket:', process.env.AWS_S3_BUCKET_NAME);
 } catch (error) {
-  console.error('AWS S3 Configuration Error:', error.message);
+  console.error('❌ AWS S3 Configuration Error:', error.message);
   s3Client = null; // Will be caught in the upload middleware
 }
 
@@ -75,6 +78,10 @@ const upload = multer({
 
 // Error handling middleware
 const handleUploadError = (err, req, res, next) => {
+  console.error('🚨 Upload middleware error:', err.message);
+  console.error('Error type:', err.constructor.name);
+  console.error('Full error:', err);
+
   // Check for AWS configuration errors
   if (err.message && err.message.includes('Missing AWS configuration')) {
     return res.status(503).json({

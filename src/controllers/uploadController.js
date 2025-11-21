@@ -6,7 +6,11 @@ const s3Client = require('../config/s3');
 // @access  Private
 exports.uploadPropertyImages = async (req, res) => {
   try {
+    console.log('📸 Upload request received');
+    console.log('Files:', req.files ? req.files.length : 0);
+
     if (!req.files || req.files.length === 0) {
+      console.log('❌ No files in request');
       return res.status(400).json({
         success: false,
         message: 'No files uploaded'
@@ -22,12 +26,15 @@ exports.uploadPropertyImages = async (req, res) => {
       originalName: file.originalname
     }));
 
+    console.log('✅ Upload successful:', uploadedImages.length, 'images');
+
     res.status(200).json({
       success: true,
       message: 'Images uploaded successfully',
       data: uploadedImages
     });
   } catch (error) {
+    console.error('❌ Upload controller error:', error);
     res.status(500).json({
       success: false,
       message: 'Error uploading images',
