@@ -21,6 +21,11 @@ import Dashboard from './pages/Dashboard';
 import AddProperty from './pages/AddProperty';
 import NotFound from './pages/NotFound';
 
+// Admin Pages
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminProperties from './pages/admin/AdminProperties';
+import AdminUsers from './pages/admin/AdminUsers';
+
 // Routes
 import PrivateRoute from './routes/PrivateRoute';
 import AdminRoute from './routes/AdminRoute';
@@ -62,7 +67,10 @@ function App() {
 
                 {/* Admin routes */}
                 <Route element={<AdminRoute />}>
-                  <Route path="/admin/*" element={<div className="p-8 text-center"><h1 className="text-2xl">Admin Dashboard - Em Construção</h1></div>} />
+                  <Route path="/admin" element={<AdminDashboard />} />
+                  <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                  <Route path="/admin/properties" element={<AdminProperties />} />
+                  <Route path="/admin/users" element={<AdminUsers />} />
                 </Route>
 
                 {/* 404 */}
