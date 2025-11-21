@@ -47,7 +47,7 @@ export const PROPERTY_TYPES = [
 
 // Energy Certificate Ratings
 export const ENERGY_RATINGS = [
-  'A+', 'A', 'B', 'B-', 'C', 'D', 'E', 'F', 'Exempt', 'Pending'
+  'A+', 'A', 'B', 'B-', 'C', 'D', 'E', 'F', 'Isento', 'Pendente'
 ];
 
 // Property Condition
