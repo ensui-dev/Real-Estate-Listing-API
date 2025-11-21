@@ -61,5 +61,32 @@ export const adminAPI = {
   updateSettings: async (settings) => {
     const response = await axios.put('/admin/settings', settings);
     return response;
+  },
+
+  // Inquiry Management
+  getInquiries: async (filters = {}) => {
+    const queryString = buildQueryString(filters);
+    const response = await axios.get(`/admin/inquiries?${queryString}`);
+    return response;
+  },
+
+  getInquiry: async (inquiryId) => {
+    const response = await axios.get(`/admin/inquiries/${inquiryId}`);
+    return response;
+  },
+
+  respondToInquiry: async (inquiryId, response) => {
+    const res = await axios.put(`/admin/inquiries/${inquiryId}/respond`, { response });
+    return res;
+  },
+
+  closeInquiry: async (inquiryId) => {
+    const response = await axios.put(`/admin/inquiries/${inquiryId}/close`);
+    return response;
+  },
+
+  deleteInquiry: async (inquiryId) => {
+    const response = await axios.delete(`/admin/inquiries/${inquiryId}`);
+    return response;
   }
 };

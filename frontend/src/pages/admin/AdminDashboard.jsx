@@ -54,6 +54,38 @@ const AdminDashboard = () => {
         </p>
       </div>
 
+      {/* Quick Navigation */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <Link
+          to="/admin/properties"
+          className="card hover:shadow-md transition-shadow flex items-center space-x-3 p-4"
+        >
+          <FaHome className="text-2xl text-green-600" />
+          <span className="font-medium text-gray-900">Imóveis</span>
+        </Link>
+        <Link
+          to="/admin/users"
+          className="card hover:shadow-md transition-shadow flex items-center space-x-3 p-4"
+        >
+          <FaUsers className="text-2xl text-blue-600" />
+          <span className="font-medium text-gray-900">Utilizadores</span>
+        </Link>
+        <Link
+          to="/admin/inquiries"
+          className="card hover:shadow-md transition-shadow flex items-center space-x-3 p-4"
+        >
+          <FaEnvelope className="text-2xl text-red-600" />
+          <span className="font-medium text-gray-900">Pedidos</span>
+        </Link>
+        <Link
+          to="/admin/properties?approvalStatus=pending"
+          className="card hover:shadow-md transition-shadow flex items-center space-x-3 p-4"
+        >
+          <FaClock className="text-2xl text-yellow-600" />
+          <span className="font-medium text-gray-900">Aprovações</span>
+        </Link>
+      </div>
+
       {/* Overview Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <StatCard

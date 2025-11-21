@@ -25,6 +25,7 @@ import NotFound from './pages/NotFound';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProperties from './pages/admin/AdminProperties';
 import AdminUsers from './pages/admin/AdminUsers';
+import AdminInquiries from './pages/admin/AdminInquiries';
 
 // Routes
 import PrivateRoute from './routes/PrivateRoute';
@@ -71,6 +72,7 @@ function App() {
                   <Route path="/admin/dashboard" element={<AdminDashboard />} />
                   <Route path="/admin/properties" element={<AdminProperties />} />
                   <Route path="/admin/users" element={<AdminUsers />} />
+                  <Route path="/admin/inquiries" element={<AdminInquiries />} />
                 </Route>
 
                 {/* 404 */}
