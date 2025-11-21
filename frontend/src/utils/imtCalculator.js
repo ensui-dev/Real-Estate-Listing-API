@@ -143,8 +143,8 @@ export const getEnergyRatingColor = (rating) => {
     'D': 'bg-orange-500 text-white',
     'E': 'bg-red-500 text-white',
     'F': 'bg-red-700 text-white',
-    'Exempt': 'bg-gray-400 text-white',
-    'Pending': 'bg-gray-300 text-gray-700'
+    'Isento': 'bg-gray-400 text-white',
+    'Pendente': 'bg-gray-300 text-gray-700'
   };
   return colors[rating] || 'bg-gray-300 text-gray-700';
 };
