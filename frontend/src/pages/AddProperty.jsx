@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { PROPERTY_TYPES, PROPERTY_STATUS, ENERGY_RATINGS, PROPERTY_FEATURES } from '../utils/constants';
 import { PORTUGUESE_DISTRICTS } from '../utils/districts';
 import { FaHome, FaMapMarkerAlt, FaInfoCircle, FaImage, FaCheckCircle } from 'react-icons/fa';
+import ImageUpload from '../components/common/ImageUpload';
 
 const AddProperty = () => {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ const AddProperty = () => {
     features: [],
 
     // Images
-    images: [{ url: '', caption: '', isPrimary: true }]
+    images: []
   });
 
   const handleChange = (e) => {
@@ -87,26 +88,10 @@ const AddProperty = () => {
     }));
   };
 
-  const handleImageChange = (index, field, value) => {
+  const handleImagesChange = (newImages) => {
     setFormData(prev => ({
       ...prev,
-      images: prev.images.map((img, i) =>
-        i === index ? { ...img, [field]: value } : img
-      )
-    }));
-  };
-
-  const addImageField = () => {
-    setFormData(prev => ({
-      ...prev,
-      images: [...prev.images, { url: '', caption: '', isPrimary: false }]
-    }));
-  };
-
-  const removeImageField = (index) => {
-    setFormData(prev => ({
-      ...prev,
-      images: prev.images.filter((_, i) => i !== index)
+      images: newImages
     }));
   };
 
@@ -597,62 +582,18 @@ const AddProperty = () => {
           {/* Step 5: Images */}
           {currentStep === 5 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Imagens</h2>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">Imagens</h2>
+                <p className="text-gray-600 mb-6">
+                  Carregue fotos do imóvel. A primeira imagem será definida como principal.
+                </p>
+              </div>
 
-              {formData.images.map((image, index) => (
-                <div key={index} className="p-4 border rounded-lg">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-medium">
-                      Imagem {index + 1} {image.isPrimary && '(Principal)'}
-                    </h3>
-                    {formData.images.length > 1 && (
-                      <button
-                        type="button"
-                        onClick={() => removeImageField(index)}
-                        className="text-red-600 hover:text-red-700"
-                      >
-                        Remover
-                      </button>
-                    )}
-                  </div>
-
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        URL da Imagem
-                      </label>
-                      <input
-                        type="url"
-                        value={image.url}
-                        onChange={(e) => handleImageChange(index, 'url', e.target.value)}
-                        className="input w-full"
-                        placeholder="https://exemplo.com/imagem.jpg"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Legenda
-                      </label>
-                      <input
-                        type="text"
-                        value={image.caption}
-                        onChange={(e) => handleImageChange(index, 'caption', e.target.value)}
-                        className="input w-full"
-                        placeholder="Sala de estar"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-
-              <button
-                type="button"
-                onClick={addImageField}
-                className="btn-secondary w-full"
-              >
-                + Adicionar Imagem
-              </button>
+              <ImageUpload
+                images={formData.images}
+                onChange={handleImagesChange}
+                maxImages={10}
+              />
             </div>
           )}
 
