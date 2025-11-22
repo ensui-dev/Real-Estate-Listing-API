@@ -40,7 +40,7 @@ const Properties = () => {
   const hasActiveFilters = filters.district || filters.propertyType || filters.minPrice || filters.maxPrice || filters.bedrooms;
 
   if (isLoading) return <Loading fullScreen />;
-  if (error) return <div className="text-center py-12 text-red-600">Erro ao carregar imóveis</div>;
+  if (error) return <div className="text-center py-12 pt-28 text-red-600">Erro ao carregar imóveis</div>;
 
   const properties = data?.data || [];
   const total = data?.total || 0;
