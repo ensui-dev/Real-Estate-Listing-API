@@ -82,7 +82,7 @@ const Footer = () => {
                 <li>
                   <Link to="/about" className="text-gray-400 hover:text-primary-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Sobre Nos
+                    Sobre Nós
                   </Link>
                 </li>
               </ul>
