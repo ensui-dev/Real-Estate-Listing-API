@@ -40,7 +40,7 @@ const Properties = () => {
   const hasActiveFilters = filters.district || filters.propertyType || filters.minPrice || filters.maxPrice || filters.bedrooms;
 
   if (isLoading) return <Loading fullScreen />;
-  if (error) return <div className="text-center py-12 text-red-600">Erro ao carregar imoveis</div>;
+  if (error) return <div className="text-center py-12 text-red-600">Erro ao carregar imóveis</div>;
 
   const properties = data?.data || [];
   const total = data?.total || 0;
@@ -50,9 +50,9 @@ const Properties = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Imoveis em Portugal</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">Imóveis em Portugal</h1>
           <p className="text-gray-600 text-lg">
-            <span className="font-semibold text-primary-600">{total}</span> imoveis encontrados
+            <span className="font-semibold text-primary-600">{total}</span> imóveis encontrados
           </p>
         </div>
 
@@ -175,7 +175,7 @@ const Properties = () => {
               ))}
             </div>
 
-            {/* Pagination placeholder - can be enhanced */}
+            {/* Págination placeholder - can be enhanced */}
             {data?.totalPages > 1 && (
               <div className="mt-12 flex justify-center">
                 <div className="card rounded-2xl inline-flex items-center gap-2 px-6 py-3">
@@ -187,7 +187,7 @@ const Properties = () => {
                     Anterior
                   </button>
                   <span className="px-4 text-gray-600">
-                    Pagina <span className="font-semibold text-primary-600">{filters.page}</span> de {data.totalPages}
+                    Página <span className="font-semibold text-primary-600">{filters.page}</span> de {data.totalPages}
                   </span>
                   <button
                     onClick={() => setFilters(prev => ({ ...prev, page: Math.min(data.totalPages, prev.page + 1) }))}
@@ -203,7 +203,7 @@ const Properties = () => {
         ) : (
           <div className="card rounded-2xl text-center py-16">
             <FaHome className="text-6xl text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-600 text-lg mb-2">Nenhum imovel encontrado</p>
+            <p className="text-gray-600 text-lg mb-2">Nenhum imóvel encontrado</p>
             <p className="text-gray-500">Tente ajustar os filtros selecionados</p>
             <button
               onClick={clearFilters}

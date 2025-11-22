@@ -33,7 +33,7 @@ const Footer = () => {
                 </div>
               </Link>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                A sua plataforma de confianca para encontrar o imovel perfeito em Portugal.
+                A sua plataforma de confiança para encontrar o imóvel perfeito em Portugal.
                 De Lisboa ao Porto, do Algarve aos Acores.
               </p>
 
@@ -64,7 +64,7 @@ const Footer = () => {
                 <li>
                   <Link to="/properties" className="text-gray-400 hover:text-primary-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Imoveis
+                    Imóveis
                   </Link>
                 </li>
                 <li>
@@ -104,7 +104,7 @@ const Footer = () => {
                 <li>
                   <Link to="/register?role=seller" className="text-gray-400 hover:text-terracotta-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-terracotta-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Anunciar Imovel
+                    Anunciar Imóvel
                   </Link>
                 </li>
                 <li>

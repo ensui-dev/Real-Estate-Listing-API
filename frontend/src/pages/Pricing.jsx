@@ -11,7 +11,7 @@ const Pricing = () => {
       subtitle: 'Para particulares',
       price: 'Gratis',
       period: '',
-      description: 'Ideal para quem quer vender ou arrendar um imovel ocasionalmente.',
+      description: 'Ideal para quem quer vender ou arrendar um imóvel ocasionalmente.',
       features: [
         { text: 'Ate 2 anuncios ativos', included: true },
         { text: '5 fotografias por anuncio', included: true },
@@ -19,8 +19,8 @@ const Pricing = () => {
         { text: 'Contacto direto com interessados', included: true },
         { text: 'Suporte por email', included: true },
         { text: 'Destaque na pesquisa', included: false },
-        { text: 'Estatisticas avancadas', included: false },
-        { text: 'Selo de verificacao', included: false },
+        { text: 'Estatísticas avançadas', included: false },
+        { text: 'Selo de verificação', included: false },
       ],
       cta: 'Comecar Gratis',
       ctaLink: '/register?role=seller',
@@ -29,7 +29,7 @@ const Pricing = () => {
     },
     {
       name: 'Profissional',
-      subtitle: 'Para agentes imobiliarios',
+      subtitle: 'Para agentes imobiliários',
       price: '29',
       period: '/mes',
       description: 'Ferramentas profissionais para agentes licenciados AMI.',
@@ -38,7 +38,7 @@ const Pricing = () => {
         { text: '20 fotografias por anuncio', included: true },
         { text: 'Listagem prioritaria', included: true },
         { text: 'Perfil de agente verificado', included: true },
-        { text: 'Estatisticas detalhadas', included: true },
+        { text: 'Estatísticas detalhadas', included: true },
         { text: 'Destaque na pesquisa', included: true },
         { text: 'Suporte prioritario', included: true },
         { text: 'CRM basico integrado', included: true },
@@ -53,15 +53,15 @@ const Pricing = () => {
       subtitle: 'Para agencias',
       price: 'Personalizado',
       period: '',
-      description: 'Solucoes completas para agencias e promotoras imobiliarias.',
+      description: 'Soluções completas para agencias e promotoras imobiliárias.',
       features: [
         { text: 'Tudo do plano Profissional', included: true },
         { text: 'Gestao de equipas', included: true },
         { text: 'Marca personalizada', included: true },
-        { text: 'API de integracao', included: true },
+        { text: 'API de integração', included: true },
         { text: 'Relatorios avancados', included: true },
         { text: 'Account manager dedicado', included: true },
-        { text: 'Formacao da equipa', included: true },
+        { text: 'Formação da equipa', included: true },
         { text: 'SLA garantido', included: true },
       ],
       cta: 'Contactar Vendas',
@@ -78,7 +78,7 @@ const Pricing = () => {
     },
     {
       question: 'Posso mudar de plano a qualquer momento?',
-      answer: 'Absolutamente. Pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alteracoes sao aplicadas no proximo ciclo de faturacao.'
+      answer: 'Absolutamente. Pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alterações sao aplicadas no proximo ciclo de faturação.'
     },
     {
       question: 'Quais sao os metodos de pagamento aceites?',
@@ -86,15 +86,15 @@ const Pricing = () => {
     },
     {
       question: 'Existe compromisso de permanencia?',
-      answer: 'Nao. Todos os nossos planos sao mensais e pode cancelar a qualquer momento sem penalizacoes.'
+      answer: 'Nao. Todos os nossos planos sao mensais e pode cancelar a qualquer momento sem penalizações.'
     },
     {
       question: 'Os precos incluem IVA?',
       answer: 'Os precos apresentados nao incluem IVA. Para clientes empresariais em Portugal, sera acrescido IVA a taxa legal em vigor (23%).'
     },
     {
-      question: 'Preciso de licenca AMI para o plano Profissional?',
-      answer: 'Sim, o plano Profissional e destinado a agentes imobiliarios licenciados. Verificamos o numero de licenca AMI durante o registo.'
+      question: 'Preciso de licença AMI para o plano Profissional?',
+      answer: 'Sim, o plano Profissional e destinado a agentes imobiliários licenciados. Verificamos o numero de licença AMI durante o registo.'
     },
   ];
 
@@ -132,7 +132,7 @@ const Pricing = () => {
               Planos Para Cada Necessidade
             </h2>
             <p className="section-subtitle">
-              Desde particulares a grandes agencias, temos a solucao certa para si
+              Desde particulares a grandes agencias, temos a solução certa para si
             </p>
           </div>
 
@@ -224,7 +224,7 @@ const Pricing = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="section-title">
-              Comparacao Detalhada
+              Comparação Detalhada
             </h2>
             <p className="section-subtitle">
               Veja em detalhe o que cada plano oferece
@@ -248,12 +248,12 @@ const Pricing = () => {
                   { feature: 'Videos', basic: '-', pro: '1 por anuncio', enterprise: 'Ilimitado' },
                   { feature: 'Visitas virtuais 360', basic: '-', pro: 'Sim', enterprise: 'Sim' },
                   { feature: 'Destaque na pesquisa', basic: '-', pro: 'Sim', enterprise: 'Premium' },
-                  { feature: 'Estatisticas', basic: 'Basicas', pro: 'Detalhadas', enterprise: 'Avancadas + API' },
-                  { feature: 'Selo de verificacao', basic: '-', pro: 'Agente AMI', enterprise: 'Agencia' },
+                  { feature: 'Estatísticas', basic: 'Basicas', pro: 'Detalhadas', enterprise: 'Avançadas + API' },
+                  { feature: 'Selo de verificação', basic: '-', pro: 'Agente AMI', enterprise: 'Agencia' },
                   { feature: 'Suporte', basic: 'Email', pro: 'Prioritario', enterprise: 'Dedicado 24/7' },
                   { feature: 'CRM integrado', basic: '-', pro: 'Basico', enterprise: 'Completo' },
                   { feature: 'Gestao de equipa', basic: '-', pro: '-', enterprise: 'Sim' },
-                  { feature: 'API de integracao', basic: '-', pro: '-', enterprise: 'Sim' },
+                  { feature: 'API de integração', basic: '-', pro: '-', enterprise: 'Sim' },
                   { feature: 'White-label', basic: '-', pro: '-', enterprise: 'Sim' },
                 ].map((row, index) => (
                   <tr key={index} className={`border-b border-gray-100 ${index % 2 === 0 ? 'bg-sand-50/50' : 'bg-white'} hover:bg-primary-50/50 transition-colors`}>
@@ -337,7 +337,7 @@ const Pricing = () => {
             Ainda tem duvidas?
           </h2>
           <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
-            A nossa equipa esta disponivel para ajudar a encontrar a melhor solucao para si.
+            A nossa equipa esta disponivel para ajudar a encontrar a melhor solução para si.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link

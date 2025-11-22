@@ -58,7 +58,7 @@ const AdminDashboard = () => {
                 Painel Administrativo
               </h1>
               <p className="text-gray-600">
-                Visao geral do sistema e estatisticas
+                Visão geral do sistema e estatísticas
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@ const AdminDashboard = () => {
               <FaHome className="text-xl text-white" />
             </div>
             <div>
-              <span className="font-semibold text-gray-900">Imoveis</span>
+              <span className="font-semibold text-gray-900">Imóveis</span>
               <p className="text-xs text-gray-500">Gerir propriedades</p>
             </div>
           </Link>
@@ -127,7 +127,7 @@ const AdminDashboard = () => {
           />
           <StatCard
             icon={FaHome}
-            label="Total de Imoveis"
+            label="Total de Imóveis"
             value={overview?.totalProperties || 0}
             color="green"
             subtitle={`${recentActivity?.newPropertiesThisWeek || 0} novos esta semana`}
@@ -168,7 +168,7 @@ const AdminDashboard = () => {
           />
           <ActionCard
             icon={FaCheckCircle}
-            label="Imoveis Ativos"
+            label="Imóveis Ativos"
             value={overview?.activeProperties || 0}
             color="green"
             link="/admin/properties"
@@ -199,7 +199,7 @@ const AdminDashboard = () => {
           {/* Property Status */}
           <div className="card rounded-2xl">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Imoveis por Estado
+              Imóveis por Estado
             </h3>
             <div className="space-y-3">
               {distributions?.propertiesByStatus?.map((item) => (
@@ -219,7 +219,7 @@ const AdminDashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="card rounded-2xl">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Distritos com Mais Imoveis
+              Distritos com Mais Imóveis
             </h3>
             <div className="space-y-3">
               {distributions?.propertiesByDistrict?.slice(0, 5).map((item, index) => (
@@ -274,7 +274,7 @@ const AdminDashboard = () => {
           <div className="card rounded-2xl">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold text-gray-900">
-                Imoveis Recentes
+                Imóveis Recentes
               </h3>
               <Link to="/admin/properties" className="text-primary-600 hover:text-primary-700 text-sm font-medium flex items-center space-x-1 group">
                 <span>Ver Todos</span>

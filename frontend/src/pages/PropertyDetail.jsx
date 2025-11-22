@@ -40,8 +40,8 @@ const PropertyDetail = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="card rounded-2xl py-16">
             <FaHome className="text-6xl text-gray-300 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Imovel nao encontrado</h2>
-            <p className="text-gray-600 mb-6">O imovel que procura nao existe ou foi removido.</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Imóvel nao encontrado</h2>
+            <p className="text-gray-600 mb-6">O imóvel que procura nao existe ou foi removido.</p>
             <button onClick={() => navigate('/properties')} className="btn-primary">
               Voltar para Imoveis
             </button>
@@ -195,7 +195,7 @@ const PropertyDetail = () => {
 
               {/* Property Details */}
               <div className="mt-8">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">Detalhes do Imovel</h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-4">Detalhes do Imóvel</h2>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex justify-between p-3 bg-sand-50 rounded-xl">
                     <span className="text-gray-600">Tipo:</span>
@@ -328,7 +328,7 @@ const PropertyDetail = () => {
                 )}
                 {property.agent?.user?.email && (
                   <a
-                    href={`mailto:${property.agent.user.email}?subject=Interesse no imovel: ${property.title}`}
+                    href={`mailto:${property.agent.user.email}?subject=Interesse no imóvel: ${property.title}`}
                     className="btn-secondary w-full flex items-center justify-center gap-2"
                   >
                     <FaEnvelope />
@@ -365,7 +365,7 @@ const PropertyDetail = () => {
                   </div>
                   {property.approvalStatus === 'pending' && (
                     <p className="text-xs text-amber-700 mt-1">
-                      Este imovel esta a aguardar aprovacao do administrador.
+                      Este imóvel esta a aguardar aprovacao do administrador.
                     </p>
                   )}
                 </div>
@@ -379,7 +379,7 @@ const PropertyDetail = () => {
                 </div>
                 {property.viewCount > 0 && (
                   <div className="text-gray-400">
-                    {property.viewCount} visualizacoes
+                    {property.viewCount} visualizações
                   </div>
                 )}
               </div>

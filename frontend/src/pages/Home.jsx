@@ -4,7 +4,7 @@ import { FaSearch, FaBuilding, FaUsers, FaChartLine, FaShieldAlt, FaStar, FaArro
 
 const Home = () => {
   const stats = [
-    { number: '10K+', label: 'Imoveis', color: 'from-primary-500 to-primary-600' },
+    { number: '10K+', label: 'Imóveis', color: 'from-primary-500 to-primary-600' },
     { number: '500+', label: 'Agentes', color: 'from-terracotta-500 to-terracotta-600' },
     { number: '20', label: 'Distritos', color: 'from-golden-500 to-golden-600' },
     { number: '98%', label: 'Satisfação', color: 'from-emerald-500 to-emerald-600' },
@@ -13,7 +13,7 @@ const Home = () => {
   const features = [
     {
       icon: FaBuilding,
-      title: 'Milhares de Imoveis',
+      title: 'Milhares de Imóveis',
       description: 'Acesso a propriedades em todos os 20 distritos de Portugal, das ilhas ao continente.',
       color: 'primary',
     },
@@ -58,21 +58,21 @@ const Home = () => {
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-8 border border-white/20">
                 <FaStar className="text-golden-400 mr-2" />
-                #1 Plataforma Imobiliaria em Portugal
+                #1 Plataforma Imobiliária em Portugal
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Encontre o Seu
                 <span className="block mt-2">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-golden-300 to-terracotta-300">
-                    Imovel Ideal
+                    Imóvel Ideal
                   </span>
                 </span>
                 em Portugal
               </h1>
 
               <p className="text-xl text-primary-100 mb-10 max-w-xl mx-auto lg:mx-0">
-                A plataforma de confianca para compra, venda e arrendamento de imoveis.
+                A plataforma de confiança para compra, venda e arrendamento de imóveis.
                 De Lisboa ao Algarve, do Porto aos Acores.
               </p>
 
@@ -83,14 +83,14 @@ const Home = () => {
                   className="group inline-flex items-center justify-center bg-white text-primary-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                 >
                   <FaSearch className="mr-2 group-hover:scale-110 transition-transform" />
-                  Procurar Imoveis
+                  Procurar Imóveis
                   <FaArrowRight className="ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </Link>
                 <Link
                   to="/register"
                   className="group inline-flex items-center justify-center bg-terracotta-500 hover:bg-terracotta-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                 >
-                  Anunciar Imovel
+                  Anunciar Imóvel
                 </Link>
               </div>
 
@@ -164,7 +164,7 @@ const Home = () => {
               ?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Oferecemos a melhor experiencia na procura do seu imovel em Portugal
+              Oferecemos a melhor experiência na procura do seu imóvel em Portugal
             </p>
           </div>
 
@@ -209,7 +209,7 @@ const Home = () => {
             ?
           </h2>
           <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
-            Junte-se a milhares de portugueses que ja encontraram o imovel dos seus sonhos.
+            Junte-se a milhares de portugueses que ja encontraram o imóvel dos seus sonhos.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
@@ -223,7 +223,7 @@ const Home = () => {
               to="/properties"
               className="inline-flex items-center justify-center bg-transparent border-2 border-white/50 hover:border-white text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-0.5"
             >
-              Ver Todos os Imoveis
+              Ver Todos os Imóveis
             </Link>
           </div>
         </div>

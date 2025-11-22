@@ -247,7 +247,7 @@ const AdminInquiries = () => {
                     Contacto
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Imovel
+                    Imóvel
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                     Tipo
@@ -450,7 +450,7 @@ const AdminInquiries = () => {
 
                 {selectedInquiry.property && (
                   <div className="bg-sand-50 p-4 rounded-xl">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-2">Imovel</h4>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-2">Imóvel</h4>
                     <p className="text-sm font-medium">{selectedInquiry.property.title}</p>
                     {selectedInquiry.property.address && (
                       <p className="text-xs text-gray-500">
@@ -536,7 +536,7 @@ const AdminInquiries = () => {
                 </p>
                 {selectedInquiry.property && (
                   <p className="text-sm text-gray-600 mt-1">
-                    <span className="font-semibold">Imovel:</span> {selectedInquiry.property.title}
+                    <span className="font-semibold">Imóvel:</span> {selectedInquiry.property.title}
                   </p>
                 )}
                 <p className="text-sm text-gray-500 mt-3 italic border-l-2 border-primary-300 pl-3">

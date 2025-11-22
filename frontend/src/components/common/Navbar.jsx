@@ -68,7 +68,7 @@ const Navbar = () => {
                     : 'text-gray-600 hover:bg-gray-50 hover:text-primary-600'
                 }`}
               >
-                Imoveis
+                Imóveis
               </Link>
               <Link
                 to="/agencies"
@@ -196,7 +196,7 @@ const Navbar = () => {
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Imoveis
+                Imóveis
               </Link>
               <Link
                 to="/agencies"

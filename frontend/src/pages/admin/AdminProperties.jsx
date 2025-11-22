@@ -45,22 +45,22 @@ const AdminProperties = () => {
       });
     } catch (error) {
       console.error('Error fetching properties:', error);
-      toast.error('Erro ao carregar imoveis');
+      toast.error('Erro ao carregar imóveis');
     } finally {
       setLoading(false);
     }
   };
 
   const handleApprove = async (propertyId) => {
-    if (!confirm('Tem a certeza que deseja aprovar este imovel?')) return;
+    if (!confirm('Tem a certeza que deseja aprovar este imóvel?')) return;
 
     try {
       await adminAPI.approveProperty(propertyId);
-      toast.success('Imovel aprovado com sucesso!');
+      toast.success('Imóvel aprovado com sucesso!');
       fetchProperties();
     } catch (error) {
       console.error('Error approving property:', error);
-      toast.error('Erro ao aprovar imovel');
+      toast.error('Erro ao aprovar imóvel');
     }
   };
 
@@ -72,46 +72,46 @@ const AdminProperties = () => {
 
     try {
       await adminAPI.rejectProperty(rejectPropertyId, rejectionReason);
-      toast.success('Imovel rejeitado');
+      toast.success('Imóvel rejeitado');
       setShowRejectModal(false);
       setRejectPropertyId(null);
       setRejectionReason('');
       fetchProperties();
     } catch (error) {
       console.error('Error rejecting property:', error);
-      toast.error('Erro ao rejeitar imovel');
+      toast.error('Erro ao rejeitar imóvel');
     }
   };
 
   const handleBulkApprove = async () => {
     if (selectedProperties.length === 0) {
-      toast.error('Selecione pelo menos um imovel');
+      toast.error('Selecione pelo menos um imóvel');
       return;
     }
 
-    if (!confirm(`Aprovar ${selectedProperties.length} imoveis?`)) return;
+    if (!confirm(`Aprovar ${selectedProperties.length} imóveis?`)) return;
 
     try {
       await adminAPI.bulkApproveProperties(selectedProperties);
-      toast.success(`${selectedProperties.length} imoveis aprovados!`);
+      toast.success(`${selectedProperties.length} imóveis aprovados!`);
       setSelectedProperties([]);
       fetchProperties();
     } catch (error) {
       console.error('Error bulk approving:', error);
-      toast.error('Erro ao aprovar imoveis em massa');
+      toast.error('Erro ao aprovar imóveis em massa');
     }
   };
 
   const handleDelete = async (propertyId) => {
-    if (!confirm('Tem a certeza que deseja eliminar este imovel? Esta acao nao pode ser revertida.')) return;
+    if (!confirm('Tem a certeza que deseja eliminar este imóvel? Esta ação não pode ser revertida.')) return;
 
     try {
       await adminAPI.deleteProperty(propertyId);
-      toast.success('Imovel eliminado');
+      toast.success('Imóvel eliminado');
       fetchProperties();
     } catch (error) {
       console.error('Error deleting property:', error);
-      toast.error('Erro ao eliminar imovel');
+      toast.error('Erro ao eliminar imóvel');
     }
   };
 
@@ -154,7 +154,7 @@ const AdminProperties = () => {
                 Gestão de Imóveis
               </h1>
               <p className="text-gray-600">
-                {pagination.total || 0} imoveis no total
+                {pagination.total || 0} imóveis no total
               </p>
             </div>
           </div>
@@ -239,7 +239,7 @@ const AdminProperties = () => {
                     />
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Imovel
+                    Imóvel
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                     Proprietario
@@ -428,7 +428,7 @@ const AdminProperties = () => {
                   <FaTimes className="text-2xl text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">
-                  Rejeitar Imovel
+                  Rejeitar Imóvel
                 </h3>
                 <p className="text-sm text-gray-500 mt-1">
                   Por favor, forneça um motivo para a rejeição

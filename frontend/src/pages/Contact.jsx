@@ -73,21 +73,21 @@ const Contact = () => {
     {
       icon: FaBuilding,
       title: 'Para Agencias',
-      description: 'Solucoes empresariais personalizadas.',
+      description: 'Soluções empresariais personalizadas.',
       link: '/pricing',
       linkText: 'Ver Planos'
     },
     {
       icon: FaUserTie,
       title: 'Tornar-me Agente',
-      description: 'Registe-se como profissional imobiliario.',
+      description: 'Registe-se como profissional imobiliário.',
       link: '/register?role=agent',
       linkText: 'Registar'
     },
     {
       icon: FaHome,
-      title: 'Anunciar Imovel',
-      description: 'Publique o seu imovel na nossa plataforma.',
+      title: 'Anunciar Imóvel',
+      description: 'Publique o seu imóvel na nossa plataforma.',
       link: '/register?role=seller',
       linkText: 'Comecar'
     },
@@ -455,11 +455,11 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="card p-8">
             <h3 className="font-bold text-gray-900 text-xl mb-4">
-              Resolucao Alternativa de Litigios
+              Resolução Alternativa de Litigios
             </h3>
             <p className="text-gray-600 mb-6">
-              Em conformidade com a legislacao europeia e portuguesa, informamos que, em caso de litigio,
-              pode recorrer a uma entidade de resolucao alternativa de litigios de consumo:
+              Em conformidade com a legislação europeia e portuguesa, informamos que, em caso de litigio,
+              pode recorrer a uma entidade de resolução alternativa de litígios de consumo:
             </p>
             <div className="flex flex-wrap gap-4">
               <a
