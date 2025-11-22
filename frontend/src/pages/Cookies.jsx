@@ -6,7 +6,7 @@ const Cookies = () => {
   const lastUpdated = '21 de Novembro de 2024';
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 pt-28 pb-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Link */}
         <Link to="/" className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-6">

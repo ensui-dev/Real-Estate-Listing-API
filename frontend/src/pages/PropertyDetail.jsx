@@ -33,7 +33,7 @@ const PropertyDetail = () => {
 
   if (error || !response?.data) {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-16 text-center">
+      <div className="max-w-4xl mx-auto px-4 pt-28 pb-16 text-center">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Imóvel não encontrado</h2>
         <p className="text-gray-600 mb-6">O imóvel que procura não existe ou foi removido.</p>
         <button onClick={() => navigate('/properties')} className="btn-primary">
@@ -53,7 +53,7 @@ const PropertyDetail = () => {
     : null;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-8">
       {/* Back Button */}
       <button
         onClick={() => navigate(-1)}
