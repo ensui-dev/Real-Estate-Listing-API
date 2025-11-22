@@ -8,9 +8,12 @@ const errorHandler = require('./middleware/errorHandler');
 const authRoutes = require('./routes/authRoutes');
 const propertyRoutes = require('./routes/propertyRoutes');
 const agentRoutes = require('./routes/agentRoutes');
+const agencyRoutes = require('./routes/agencyRoutes');
 const favoriteRoutes = require('./routes/favoriteRoutes');
 const inquiryRoutes = require('./routes/inquiryRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+const uploadRoutes = require('./routes/uploadRoutes');
 
 // Connect to database
 connectDB();
@@ -19,7 +22,13 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors());
+// CORS configuration for production
+const corsOptions = {
+  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -27,24 +36,39 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/auth', authRoutes);
 app.use('/api/properties', propertyRoutes);
 app.use('/api/agents', agentRoutes);
+app.use('/api/agencies', agencyRoutes);
 app.use('/api/favorites', favoriteRoutes);
 app.use('/api/inquiries', inquiryRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/upload', uploadRoutes);
 
 // Welcome route
 app.get('/', (req, res) => {
   res.json({
     success: true,
-    message: 'Welcome to Real Estate API',
-    version: '1.0.0',
+    message: 'Welcome to LusitanEstate API',
+    version: '2.0.0',
+    description: 'LusitanEstate - Professional real estate platform for Portugal',
     endpoints: {
       auth: '/api/auth',
       properties: '/api/properties',
       agents: '/api/agents',
+      agencies: '/api/agencies',
       favorites: '/api/favorites',
       inquiries: '/api/inquiries',
-      reviews: '/api/reviews'
-    }
+      reviews: '/api/reviews',
+      admin: '/api/admin (Admin only)',
+      upload: '/api/upload (Authenticated users)'
+    },
+    features: [
+      'Portuguese market specifics (Districts, Energy Certificates, IMT)',
+      'Multi-role authentication (Buyer, Seller, Agent, Admin)',
+      'Agency management system',
+      'Property approval workflow',
+      'Admin dashboard with analytics',
+      'CMS settings and configuration'
+    ]
   });
 });
 
