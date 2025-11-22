@@ -141,21 +141,24 @@
     @apply bg-gradient-to-r from-primary-600 to-terracotta-500 bg-clip-text text-transparent;
   }
 
-  /* Feature Card */
+  /* Feature Card - Note: add 'group' class directly in JSX for hover effects */
   .feature-card {
     @apply bg-white rounded-2xl p-8 text-center
            border border-gray-100 shadow-sm
            hover:shadow-float hover:border-primary-100
-           transition-all duration-300
-           group;
+           transition-all duration-300;
   }
 
   .feature-card-icon {
     @apply w-16 h-16 mx-auto mb-6 rounded-2xl
            bg-gradient-to-br from-primary-50 to-primary-100
            flex items-center justify-center
-           group-hover:from-primary-100 group-hover:to-primary-200
            transition-all duration-300;
+  }
+
+  /* Feature card icon hover - applied when parent has group class */
+  .group:hover .feature-card-icon {
+    @apply from-primary-100 to-primary-200;
   }
 }
 
