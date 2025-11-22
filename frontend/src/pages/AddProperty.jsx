@@ -40,7 +40,7 @@ const AddProperty = () => {
 
     // Energy Certificate
     energyCertificate: {
-      rating: 'Pending'
+      rating: 'Pendente'
     },
 
     // Features
