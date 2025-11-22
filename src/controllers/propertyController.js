@@ -14,6 +14,7 @@ exports.getProperties = async (req, res) => {
       bathrooms,
       city,
       state,
+      district,
       features
     } = req.query;
 
@@ -24,6 +25,7 @@ exports.getProperties = async (req, res) => {
     if (status) query.status = status;
     if (city) query['address.city'] = new RegExp(city, 'i');
     if (state) query['address.state'] = new RegExp(state, 'i');
+    if (district) query['address.district'] = new RegExp(district, 'i');
     if (bedrooms) query.bedrooms = { $gte: parseInt(bedrooms) };
     if (bathrooms) query.bathrooms = { $gte: parseInt(bathrooms) };
     if (features) query.features = { $in: features.split(',') };
@@ -34,6 +36,9 @@ exports.getProperties = async (req, res) => {
       if (maxPrice) query.price.$lte = parseInt(maxPrice);
     }
 
+    // Only show approved properties in public listing
+    query.approvalStatus = 'approved';
+
     const properties = await Property.find(query)
       .populate('owner', 'name email phone')
       .populate('agent')
@@ -42,6 +47,7 @@ exports.getProperties = async (req, res) => {
     res.status(200).json({
       success: true,
       count: properties.length,
+      total: properties.length,
       data: properties
     });
   } catch (error) {
@@ -54,7 +60,7 @@ exports.getProperties = async (req, res) => {
 
 // @desc    Get single property
 // @route   GET /api/properties/:id
-// @access  Public
+// @access  Public (but restricted for non-approved properties)
 exports.getProperty = async (req, res) => {
   try {
     const property = await Property.findById(req.params.id)
@@ -66,6 +72,28 @@ exports.getProperty = async (req, res) => {
         success: false,
         message: 'Property not found'
       });
+    }
+
+    // If property is not approved, only owner and admin can view it
+    if (property.approvalStatus !== 'approved') {
+      // Check if user is authenticated
+      if (!req.user) {
+        return res.status(404).json({
+          success: false,
+          message: 'Property not found'
+        });
+      }
+
+      // Check if user is owner or admin
+      const isOwner = property.owner._id.toString() === req.user._id.toString();
+      const isAdmin = req.user.role === 'admin';
+
+      if (!isOwner && !isAdmin) {
+        return res.status(404).json({
+          success: false,
+          message: 'Property not found'
+        });
+      }
     }
 
     res.status(200).json({
@@ -85,6 +113,23 @@ exports.getProperty = async (req, res) => {
 // @access  Private (seller, agent, admin)
 exports.createProperty = async (req, res) => {
   try {
+    // Validate that at least one image is provided
+    if (!req.body.images || req.body.images.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'At least one property image is required'
+      });
+    }
+
+    // Validate that all images have URLs
+    const validImages = req.body.images.filter(img => img.url && img.url.trim() !== '');
+    if (validImages.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'At least one valid property image is required'
+      });
+    }
+
     // Add user as owner
     req.body.owner = req.user._id;
 
