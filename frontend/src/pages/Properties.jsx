@@ -111,7 +111,7 @@ const Properties = () => {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Preco Minimo
+                Preço Mínimo
               </label>
               <input
                 type="number"
@@ -125,7 +125,7 @@ const Properties = () => {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Preco Maximo
+                Preço Máximo
               </label>
               <input
                 type="number"

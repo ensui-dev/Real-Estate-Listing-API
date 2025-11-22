@@ -66,7 +66,7 @@ const AdminProperties = () => {
 
   const handleReject = async () => {
     if (!rejectionReason.trim()) {
-      toast.error('Por favor, forneca um motivo para a rejeicao');
+      toast.error('Por favor, forneça um motivo para a rejeição');
       return;
     }
 
@@ -151,7 +151,7 @@ const AdminProperties = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold text-gray-900">
-                Gestao de Imoveis
+                Gestão de Imóveis
               </h1>
               <p className="text-gray-600">
                 {pagination.total || 0} imoveis no total
@@ -183,7 +183,7 @@ const AdminProperties = () => {
               onChange={(e) => setFilters({ ...filters, approvalStatus: e.target.value, page: 1 })}
               className="input-field"
             >
-              <option value="">Todos os Estados de Aprovacao</option>
+              <option value="">Todos os Estados de Aprovação</option>
               <option value="pending">Pendente</option>
               <option value="approved">Aprovado</option>
               <option value="rejected">Rejeitado</option>
@@ -245,16 +245,16 @@ const AdminProperties = () => {
                     Proprietario
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Preco
+                    Preço
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                     Estado
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Aprovacao
+                    Aprovação
                   </th>
                   <th className="px-6 py-4 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Acoes
+                    Ações
                   </th>
                 </tr>
               </thead>
@@ -431,7 +431,7 @@ const AdminProperties = () => {
                   Rejeitar Imovel
                 </h3>
                 <p className="text-sm text-gray-500 mt-1">
-                  Por favor, forneca um motivo para a rejeicao
+                  Por favor, forneça um motivo para a rejeição
                 </p>
               </div>
 

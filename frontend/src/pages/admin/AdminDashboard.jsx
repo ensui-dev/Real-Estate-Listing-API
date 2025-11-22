@@ -181,7 +181,7 @@ const AdminDashboard = () => {
           {/* User Distribution */}
           <div className="card rounded-2xl">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Distribuicao de Utilizadores por Tipo
+              Distribuição de Utilizadores por Tipo
             </h3>
             <div className="space-y-3">
               {distributions?.usersByRole?.map((item) => (
@@ -241,7 +241,7 @@ const AdminDashboard = () => {
 
           <div className="card rounded-2xl">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Preco Medio por Distrito
+              Preço Médio por Distrito
             </h3>
             <div className="space-y-3">
               {distributions?.avgPriceByDistrict?.slice(0, 5).map((item, index) => (
@@ -355,7 +355,7 @@ const AdminDashboard = () => {
             <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-3">
               <FaStar className="text-2xl text-white" />
             </div>
-            <h4 className="text-sm text-gray-600 mb-1">Avaliacao Media Agencias</h4>
+            <h4 className="text-sm text-gray-600 mb-1">Avaliação Média Agências</h4>
             <p className="text-3xl font-bold text-gray-900">
               {performance?.agency?.avgRating?.toFixed(1) || 'N/A'}
             </p>
@@ -364,7 +364,7 @@ const AdminDashboard = () => {
             <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-3">
               <FaStar className="text-2xl text-white" />
             </div>
-            <h4 className="text-sm text-gray-600 mb-1">Avaliacao Media Agentes</h4>
+            <h4 className="text-sm text-gray-600 mb-1">Avaliação Média Agentes</h4>
             <p className="text-3xl font-bold text-gray-900">
               {performance?.agent?.avgRating?.toFixed(1) || 'N/A'}
             </p>

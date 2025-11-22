@@ -7,7 +7,7 @@ const Home = () => {
     { number: '10K+', label: 'Imoveis', color: 'from-primary-500 to-primary-600' },
     { number: '500+', label: 'Agentes', color: 'from-terracotta-500 to-terracotta-600' },
     { number: '20', label: 'Distritos', color: 'from-golden-500 to-golden-600' },
-    { number: '98%', label: 'Satisfacao', color: 'from-emerald-500 to-emerald-600' },
+    { number: '98%', label: 'Satisfação', color: 'from-emerald-500 to-emerald-600' },
   ];
 
   const features = [
@@ -26,13 +26,13 @@ const Home = () => {
     {
       icon: FaChartLine,
       title: 'Calculadora IMT',
-      description: 'Calcule automaticamente o Imposto Municipal sobre Transmissoes Onerosas.',
+      description: 'Calcule automaticamente o Imposto Municipal sobre Transmissões Onerosas.',
       color: 'golden',
     },
     {
       icon: FaShieldAlt,
-      title: 'Seguranca Total',
-      description: 'Transacoes seguras e verificacao de todas as propriedades listadas.',
+      title: 'Segurança Total',
+      description: 'Transações seguras e verificação de todas as propriedades listadas.',
       color: 'emerald',
     },
   ];
@@ -240,7 +240,7 @@ const Home = () => {
             </div>
             <div className="flex items-center space-x-2">
               <FaStar className="text-golden-500" />
-              <span className="text-gray-600 font-medium">4.9/5 Avaliacao</span>
+              <span className="text-gray-600 font-medium">4.9/5 Avaliação</span>
             </div>
             <div className="flex items-center space-x-2">
               <FaUsers className="text-terracotta-500" />

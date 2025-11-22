@@ -131,7 +131,7 @@ const AdminInquiries = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold text-gray-900">
-                Gestao de Pedidos
+                Gestão de Pedidos
               </h1>
               <p className="text-gray-600">
                 {pagination.total || 0} pedidos no total
@@ -230,7 +230,7 @@ const AdminInquiries = () => {
             >
               <option value="">Todos os Tipos</option>
               <option value="viewing">Visita</option>
-              <option value="information">Informacao</option>
+              <option value="information">Informação</option>
               <option value="offer">Proposta</option>
               <option value="general">Geral</option>
             </select>
@@ -603,7 +603,7 @@ const getStatusBadge = (status) => {
 const getTypeLabel = (type) => {
   const labels = {
     viewing: 'Visita',
-    information: 'Informacao',
+    information: 'Informação',
     offer: 'Proposta',
     general: 'Geral'
   };

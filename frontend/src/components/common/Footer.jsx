@@ -110,7 +110,7 @@ const Footer = () => {
                 <li>
                   <Link to="/pricing" className="text-gray-400 hover:text-terracotta-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-terracotta-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Planos e Precos
+                    Planos e Preços
                   </Link>
                 </li>
               </ul>

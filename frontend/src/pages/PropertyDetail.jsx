@@ -188,7 +188,7 @@ const PropertyDetail = () => {
               <div className="mt-6">
                 <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <FaInfoCircle className="text-primary-600" />
-                  Descricao
+                  Descrição
                 </h2>
                 <p className="text-gray-700 whitespace-pre-line leading-relaxed">{property.description}</p>
               </div>
@@ -203,7 +203,7 @@ const PropertyDetail = () => {
                   </div>
                   {property.yearBuilt && (
                     <div className="flex justify-between p-3 bg-sand-50 rounded-xl">
-                      <span className="text-gray-600">Ano de Construcao:</span>
+                      <span className="text-gray-600">Ano de Construção:</span>
                       <span className="font-semibold text-gray-900">{property.yearBuilt}</span>
                     </div>
                   )}
@@ -227,7 +227,7 @@ const PropertyDetail = () => {
                   )}
                   {property.condition && (
                     <div className="flex justify-between p-3 bg-sand-50 rounded-xl">
-                      <span className="text-gray-600">Condicao:</span>
+                      <span className="text-gray-600">Condição:</span>
                       <span className="font-semibold capitalize text-gray-900">{property.condition}</span>
                     </div>
                   )}
@@ -237,7 +237,7 @@ const PropertyDetail = () => {
               {/* Features */}
               {property.features && property.features.length > 0 && (
                 <div className="mt-8">
-                  <h2 className="text-xl font-bold text-gray-900 mb-4">Caracteristicas</h2>
+                  <h2 className="text-xl font-bold text-gray-900 mb-4">Características</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {property.features.map((feature, index) => (
                       <div key={index} className="flex items-center text-gray-700 p-3 bg-sand-50 rounded-xl">

@@ -59,7 +59,7 @@ const Contact = () => {
     { value: 'partnership', label: 'Parcerias' },
     { value: 'press', label: 'Imprensa' },
     { value: 'privacy', label: 'Privacidade e Dados' },
-    { value: 'complaint', label: 'Reclamacao' },
+    { value: 'complaint', label: 'Reclamação' },
   ];
 
   const quickLinks = [
@@ -104,7 +104,7 @@ const Contact = () => {
     },
     {
       question: 'Onde posso encontrar informacoes sobre precos?',
-      answer: 'Visite a nossa pagina de Precos para ver todos os planos disponiveis e suas funcionalidades. Para planos empresariais personalizados, entre em contacto connosco.'
+      answer: 'Visite a nossa página de Preços para ver todos os planos disponíveis e suas funcionalidades. Para planos empresariais personalizados, entre em contacto connosco.'
     },
     {
       question: 'Como exerco os meus direitos de protecao de dados?',

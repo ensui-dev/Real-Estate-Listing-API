@@ -111,7 +111,7 @@ const Pricing = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Planos e Precos
+            Planos e Preços
           </h1>
           <p className="text-xl text-primary-100 max-w-2xl mx-auto">
             Escolha o plano ideal para as suas necessidades.

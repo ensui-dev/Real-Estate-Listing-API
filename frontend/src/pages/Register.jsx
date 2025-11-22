@@ -242,11 +242,11 @@ const Register = () => {
               <label htmlFor="terms" className="ml-2 block text-sm text-gray-600">
                 Concordo com os{' '}
                 <Link to="/terms" className="text-primary-600 hover:text-primary-500 transition-colors">
-                  Termos de Servico
+                  Termos de Serviço
                 </Link>{' '}
                 e{' '}
                 <Link to="/privacy" className="text-primary-600 hover:text-primary-500 transition-colors">
-                  Politica de Privacidade
+                  Política de Privacidade
                 </Link>
               </label>
             </div>

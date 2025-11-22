@@ -161,7 +161,7 @@ const Agents = () => {
                 onChange={handleFilterChange}
                 className="input-field w-full"
               >
-                <option value="rating">Avaliacao</option>
+                <option value="rating">Avaliação</option>
                 <option value="totalSales">Mais Vendas</option>
                 <option value="name">Nome</option>
                 <option value="createdAt">Mais Recentes</option>
