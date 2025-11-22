@@ -42,7 +42,7 @@ const Home = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center">
+      <section className="relative min-h-screen flex items-center">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900" />
         <div className="absolute inset-0 bg-portuguese-pattern opacity-10" />
