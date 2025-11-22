@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaInstagram, FaLinkedin, FaHome, FaHeart, FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaHome, FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
@@ -158,12 +158,9 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex flex-col md:flex-row justify-center items-center">
               <p className="text-gray-500 text-sm">
                 &copy; {new Date().getFullYear()} LusitanEstate. Todos os direitos reservados.
-              </p>
-              <p className="text-gray-500 text-sm flex items-center">
-                Feito com <FaHeart className="text-terracotta-500 mx-1.5 animate-pulse" /> em Portugal
               </p>
             </div>
           </div>

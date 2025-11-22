@@ -110,9 +110,6 @@ const Pricing = () => {
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-golden-500/20 rounded-full blur-3xl"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium mb-4">
-            Precos Transparentes
-          </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Planos e Precos
           </h1>
@@ -131,9 +128,6 @@ const Pricing = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-              Escolha o Seu Plano
-            </span>
             <h2 className="section-title">
               Planos Para Cada Necessidade
             </h2>
@@ -229,9 +223,6 @@ const Pricing = () => {
       <div className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-              Comparacao Completa
-            </span>
             <h2 className="section-title">
               Comparacao Detalhada
             </h2>
@@ -290,9 +281,6 @@ const Pricing = () => {
       <div className="py-20" id="faq">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-              Duvidas Frequentes
-            </span>
             <h2 className="section-title">
               Perguntas Frequentes
             </h2>
@@ -345,9 +333,6 @@ const Pricing = () => {
         <div className="absolute bottom-10 left-10 w-80 h-80 bg-golden-500/20 rounded-full blur-3xl"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium mb-4">
-            Precisa de Ajuda?
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ainda tem duvidas?
           </h2>

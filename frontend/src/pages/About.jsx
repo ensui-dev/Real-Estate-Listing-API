@@ -23,9 +23,6 @@ const About = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-primary-100 text-sm font-medium mb-6">
-              A plataforma imobiliária de Portugal
-            </span>
             <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">
               Sobre a <span className="text-golden-400">Lusitan</span>Estate
             </h1>
@@ -42,9 +39,6 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-                A Nossa Missão
-              </span>
               <h2 className="text-3xl md:text-4xl font-bold font-display text-gray-900 mb-6">
                 Simplificar a jornada para encontrar a sua{' '}
                 <span className="gradient-text">casa de sonho</span>
@@ -97,9 +91,6 @@ const About = () => {
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="inline-block px-3 py-1 bg-terracotta-100 text-terracotta-700 rounded-full text-sm font-medium mb-4">
-              Os Nossos Valores
-            </span>
             <h2 className="section-title mb-4">
               Princípios que nos guiam
             </h2>
@@ -145,9 +136,6 @@ const About = () => {
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="inline-block px-3 py-1 bg-golden-100 text-golden-700 rounded-full text-sm font-medium mb-4">
-              Serviços
-            </span>
             <h2 className="section-title mb-4">
               O Que Oferecemos
             </h2>
@@ -209,9 +197,6 @@ const About = () => {
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-              Cobertura
-            </span>
             <h2 className="section-title mb-4">
               Cobertura Nacional
             </h2>

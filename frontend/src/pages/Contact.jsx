@@ -124,9 +124,6 @@ const Contact = () => {
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-golden-500/20 rounded-full blur-3xl"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium mb-4">
-            Estamos Aqui Para Ajudar
-          </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Contacte-nos
           </h1>
@@ -141,9 +138,6 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <div className="card p-8">
-              <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-                Formulario de Contacto
-              </span>
               <h2 className="section-title mb-2">
                 Envie-nos uma Mensagem
               </h2>
@@ -299,9 +293,6 @@ const Contact = () => {
           <div className="space-y-6">
             {/* Contact Details */}
             <div className="card p-8">
-              <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-                Contactos Diretos
-              </span>
               <h3 className="text-xl font-bold text-gray-900 mb-6">
                 Informacoes de Contacto
               </h3>
@@ -390,9 +381,6 @@ const Contact = () => {
         {/* Quick Links Section */}
         <div className="mt-20">
           <div className="text-center mb-12">
-            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-              Recursos Uteis
-            </span>
             <h2 className="section-title">
               Links Uteis
             </h2>
@@ -420,9 +408,6 @@ const Contact = () => {
         {/* FAQ Section */}
         <div className="mt-20">
           <div className="text-center mb-12">
-            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-              Duvidas Frequentes
-            </span>
             <h2 className="section-title">
               Perguntas Frequentes
             </h2>
@@ -469,9 +454,6 @@ const Contact = () => {
       <div className="bg-gradient-to-br from-sand-100 to-sand-200 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="card p-8">
-            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
-              Informacao Legal
-            </span>
             <h3 className="font-bold text-gray-900 text-xl mb-4">
               Resolucao Alternativa de Litigios
             </h3>

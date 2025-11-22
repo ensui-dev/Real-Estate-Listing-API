@@ -75,12 +75,6 @@ const Agents = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="section-badge">
-              <FaUserTie className="mr-2" />
-              Agentes
-            </span>
-          </div>
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
             Agentes Imobiliarios
           </h1>
