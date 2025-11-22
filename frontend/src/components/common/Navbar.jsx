@@ -34,9 +34,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Spacer for fixed navbar */}
-      <div className="h-20" />
-
       <nav className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 transition-all duration-500 ${
         scrolled
           ? 'bg-white/95 shadow-float-lg backdrop-blur-lg'

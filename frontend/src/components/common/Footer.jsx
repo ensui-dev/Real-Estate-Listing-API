@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaHome, FaHeart, FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaHome, FaHeart, FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
@@ -47,8 +48,8 @@ const Footer = () => {
                 <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-blue-600 rounded-xl flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110">
                   <FaLinkedin size={18} />
                 </a>
-                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-sky-500 rounded-xl flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110">
-                  <FaTwitter size={18} />
+                <a href="#" className="w-10 h-10 bg-gray-800 hover:bg-black rounded-xl flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110">
+                  <FaXTwitter size={18} />
                 </a>
               </div>
             </div>
