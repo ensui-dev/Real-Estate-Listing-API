@@ -1,65 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaCheck, FaTimes, FaStar, FaRocket, FaBuilding, FaArrowRight } from 'react-icons/fa';
+import { FaCheck, FaTimes, FaStar, FaRocket, FaBuilding, FaArrowRight, FaChevronDown } from 'react-icons/fa';
 
 const Pricing = () => {
+  const [openFaq, setOpenFaq] = useState(null);
+
   const plans = [
     {
-      name: 'Básico',
+      name: 'Basico',
       subtitle: 'Para particulares',
-      price: 'Grátis',
+      price: 'Gratis',
       period: '',
-      description: 'Ideal para quem quer vender ou arrendar um imóvel ocasionalmente.',
+      description: 'Ideal para quem quer vender ou arrendar um imovel ocasionalmente.',
       features: [
-        { text: 'Até 2 anúncios ativos', included: true },
-        { text: '5 fotografias por anúncio', included: true },
-        { text: 'Listagem básica', included: true },
+        { text: 'Ate 2 anuncios ativos', included: true },
+        { text: '5 fotografias por anuncio', included: true },
+        { text: 'Listagem basica', included: true },
         { text: 'Contacto direto com interessados', included: true },
         { text: 'Suporte por email', included: true },
         { text: 'Destaque na pesquisa', included: false },
-        { text: 'Estatísticas avançadas', included: false },
-        { text: 'Selo de verificação', included: false },
+        { text: 'Estatisticas avancadas', included: false },
+        { text: 'Selo de verificacao', included: false },
       ],
-      cta: 'Começar Grátis',
+      cta: 'Comecar Gratis',
       ctaLink: '/register?role=seller',
       popular: false,
       icon: FaStar,
     },
     {
       name: 'Profissional',
-      subtitle: 'Para agentes imobiliários',
+      subtitle: 'Para agentes imobiliarios',
       price: '29',
-      period: '/mês',
+      period: '/mes',
       description: 'Ferramentas profissionais para agentes licenciados AMI.',
       features: [
-        { text: 'Anúncios ilimitados', included: true },
-        { text: '20 fotografias por anúncio', included: true },
-        { text: 'Listagem prioritária', included: true },
+        { text: 'Anuncios ilimitados', included: true },
+        { text: '20 fotografias por anuncio', included: true },
+        { text: 'Listagem prioritaria', included: true },
         { text: 'Perfil de agente verificado', included: true },
-        { text: 'Estatísticas detalhadas', included: true },
+        { text: 'Estatisticas detalhadas', included: true },
         { text: 'Destaque na pesquisa', included: true },
-        { text: 'Suporte prioritário', included: true },
-        { text: 'CRM básico integrado', included: true },
+        { text: 'Suporte prioritario', included: true },
+        { text: 'CRM basico integrado', included: true },
       ],
-      cta: 'Começar Teste Grátis',
+      cta: 'Comecar Teste Gratis',
       ctaLink: '/register?role=agent',
       popular: true,
       icon: FaRocket,
     },
     {
       name: 'Empresarial',
-      subtitle: 'Para agências',
+      subtitle: 'Para agencias',
       price: 'Personalizado',
       period: '',
-      description: 'Soluções completas para agências e promotoras imobiliárias.',
+      description: 'Solucoes completas para agencias e promotoras imobiliarias.',
       features: [
         { text: 'Tudo do plano Profissional', included: true },
-        { text: 'Gestão de equipas', included: true },
+        { text: 'Gestao de equipas', included: true },
         { text: 'Marca personalizada', included: true },
-        { text: 'API de integração', included: true },
-        { text: 'Relatórios avançados', included: true },
+        { text: 'API de integracao', included: true },
+        { text: 'Relatorios avancados', included: true },
         { text: 'Account manager dedicado', included: true },
-        { text: 'Formação da equipa', included: true },
+        { text: 'Formacao da equipa', included: true },
         { text: 'SLA garantido', included: true },
       ],
       cta: 'Contactar Vendas',
@@ -72,37 +74,47 @@ const Pricing = () => {
   const faqs = [
     {
       question: 'Posso experimentar antes de pagar?',
-      answer: 'Sim! O plano Profissional inclui um período de teste gratuito de 14 dias, sem necessidade de cartão de crédito.'
+      answer: 'Sim! O plano Profissional inclui um periodo de teste gratuito de 14 dias, sem necessidade de cartao de credito.'
     },
     {
       question: 'Posso mudar de plano a qualquer momento?',
-      answer: 'Absolutamente. Pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alterações são aplicadas no próximo ciclo de faturação.'
+      answer: 'Absolutamente. Pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alteracoes sao aplicadas no proximo ciclo de faturacao.'
     },
     {
-      question: 'Quais são os métodos de pagamento aceites?',
-      answer: 'Aceitamos cartões de crédito/débito (Visa, Mastercard), MB Way, transferência bancária e débito direto SEPA.'
+      question: 'Quais sao os metodos de pagamento aceites?',
+      answer: 'Aceitamos cartoes de credito/debito (Visa, Mastercard), MB Way, transferencia bancaria e debito direto SEPA.'
     },
     {
-      question: 'Existe compromisso de permanência?',
-      answer: 'Não. Todos os nossos planos são mensais e pode cancelar a qualquer momento sem penalizações.'
+      question: 'Existe compromisso de permanencia?',
+      answer: 'Nao. Todos os nossos planos sao mensais e pode cancelar a qualquer momento sem penalizacoes.'
     },
     {
-      question: 'Os preços incluem IVA?',
-      answer: 'Os preços apresentados não incluem IVA. Para clientes empresariais em Portugal, será acrescido IVA à taxa legal em vigor (23%).'
+      question: 'Os precos incluem IVA?',
+      answer: 'Os precos apresentados nao incluem IVA. Para clientes empresariais em Portugal, sera acrescido IVA a taxa legal em vigor (23%).'
     },
     {
-      question: 'Preciso de licença AMI para o plano Profissional?',
-      answer: 'Sim, o plano Profissional é destinado a agentes imobiliários licenciados. Verificamos o número de licença AMI durante o registo.'
+      question: 'Preciso de licenca AMI para o plano Profissional?',
+      answer: 'Sim, o plano Profissional e destinado a agentes imobiliarios licenciados. Verificamos o numero de licenca AMI durante o registo.'
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-28">
+    <div className="min-h-screen bg-sand-50 pt-28">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Planos e Preços
+      <div className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900 text-white py-20 overflow-hidden">
+        {/* Portuguese Pattern Overlay */}
+        <div className="absolute inset-0 bg-portuguese-pattern opacity-10"></div>
+
+        {/* Decorative Blur Circles */}
+        <div className="absolute top-10 left-10 w-64 h-64 bg-terracotta-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-golden-500/20 rounded-full blur-3xl"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium mb-4">
+            Precos Transparentes
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Planos e Precos
           </h1>
           <p className="text-xl text-primary-100 max-w-2xl mx-auto">
             Escolha o plano ideal para as suas necessidades.
@@ -112,18 +124,36 @@ const Pricing = () => {
       </div>
 
       {/* Pricing Cards */}
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+      <div className="py-20 relative">
+        {/* Background decoration */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-terracotta-500/5 rounded-full blur-3xl"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+              Escolha o Seu Plano
+            </span>
+            <h2 className="section-title">
+              Planos Para Cada Necessidade
+            </h2>
+            <p className="section-subtitle">
+              Desde particulares a grandes agencias, temos a solucao certa para si
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 items-start">
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className={`bg-white rounded-2xl shadow-lg overflow-hidden ${
-                  plan.popular ? 'ring-2 ring-primary-500 scale-105' : ''
+                className={`card overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
+                  plan.popular
+                    ? 'ring-2 ring-terracotta-500 md:scale-105 relative z-10'
+                    : ''
                 }`}
               >
                 {plan.popular && (
-                  <div className="bg-primary-500 text-white text-center py-2 text-sm font-semibold">
+                  <div className="bg-gradient-to-r from-terracotta-500 to-terracotta-600 text-white text-center py-2 text-sm font-semibold">
                     Mais Popular
                   </div>
                 )}
@@ -133,14 +163,18 @@ const Pricing = () => {
                       <h3 className="text-2xl font-bold text-gray-900">{plan.name}</h3>
                       <p className="text-gray-500 text-sm">{plan.subtitle}</p>
                     </div>
-                    <div className="bg-primary-100 p-3 rounded-full">
-                      <plan.icon className="text-primary-600 text-xl" />
+                    <div className={`p-3 rounded-xl shadow-lg ${
+                      plan.popular
+                        ? 'bg-gradient-to-br from-terracotta-500 to-terracotta-600 shadow-terracotta-500/20'
+                        : 'bg-gradient-to-br from-primary-500 to-primary-600 shadow-primary-500/20'
+                    }`}>
+                      <plan.icon className="text-white text-xl" />
                     </div>
                   </div>
 
                   <div className="mb-6">
-                    <span className="text-4xl font-bold text-gray-900">
-                      {plan.price === 'Grátis' || plan.price === 'Personalizado'
+                    <span className={`text-4xl font-bold ${plan.popular ? 'text-terracotta-600' : 'text-gray-900'}`}>
+                      {plan.price === 'Gratis' || plan.price === 'Personalizado'
                         ? plan.price
                         : `€${plan.price}`}
                     </span>
@@ -155,9 +189,17 @@ const Pricing = () => {
                     {plan.features.map((feature, index) => (
                       <li key={index} className="flex items-start">
                         {feature.included ? (
-                          <FaCheck className="text-green-500 mt-1 mr-3 flex-shrink-0" />
+                          <div className={`p-1 rounded-full mr-3 flex-shrink-0 ${
+                            plan.popular ? 'bg-terracotta-100' : 'bg-green-100'
+                          }`}>
+                            <FaCheck className={`text-xs ${
+                              plan.popular ? 'text-terracotta-600' : 'text-green-600'
+                            }`} />
+                          </div>
                         ) : (
-                          <FaTimes className="text-gray-300 mt-1 mr-3 flex-shrink-0" />
+                          <div className="p-1 rounded-full mr-3 flex-shrink-0 bg-gray-100">
+                            <FaTimes className="text-xs text-gray-400" />
+                          </div>
                         )}
                         <span className={feature.included ? 'text-gray-700' : 'text-gray-400'}>
                           {feature.text}
@@ -168,10 +210,10 @@ const Pricing = () => {
 
                   <Link
                     to={plan.ctaLink}
-                    className={`block w-full text-center py-3 px-6 rounded-lg font-semibold transition-colors ${
+                    className={`block w-full text-center py-4 px-6 rounded-xl font-semibold transition-all duration-300 ${
                       plan.popular
-                        ? 'bg-primary-600 text-white hover:bg-primary-700'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'bg-gradient-to-r from-terracotta-500 to-terracotta-600 text-white hover:from-terracotta-600 hover:to-terracotta-700 shadow-lg shadow-terracotta-500/25 hover:shadow-xl hover:shadow-terracotta-500/30'
+                        : 'btn-secondary hover:bg-primary-50'
                     }`}
                   >
                     {plan.cta}
@@ -184,50 +226,53 @@ const Pricing = () => {
       </div>
 
       {/* Features Comparison */}
-      <div className="bg-white py-16">
+      <div className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Comparação Detalhada
+            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+              Comparacao Completa
+            </span>
+            <h2 className="section-title">
+              Comparacao Detalhada
             </h2>
-            <p className="text-lg text-gray-600">
-              Veja em detalhe o que cada plano oferece.
+            <p className="section-subtitle">
+              Veja em detalhe o que cada plano oferece
             </p>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full">
+          <div className="overflow-x-auto rounded-2xl shadow-lg">
+            <table className="w-full bg-white">
               <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="py-4 px-6 text-left text-gray-600 font-medium">Funcionalidade</th>
-                  <th className="py-4 px-6 text-center text-gray-900 font-semibold">Básico</th>
-                  <th className="py-4 px-6 text-center text-primary-600 font-semibold bg-primary-50">Profissional</th>
-                  <th className="py-4 px-6 text-center text-gray-900 font-semibold">Empresarial</th>
+                <tr className="bg-gradient-to-r from-primary-600 to-primary-700">
+                  <th className="py-5 px-6 text-left text-white font-medium">Funcionalidade</th>
+                  <th className="py-5 px-6 text-center text-white font-semibold">Basico</th>
+                  <th className="py-5 px-6 text-center font-semibold bg-terracotta-500 text-white">Profissional</th>
+                  <th className="py-5 px-6 text-center text-white font-semibold">Empresarial</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { feature: 'Número de anúncios', basic: '2', pro: 'Ilimitado', enterprise: 'Ilimitado' },
-                  { feature: 'Fotografias por anúncio', basic: '5', pro: '20', enterprise: 'Ilimitado' },
-                  { feature: 'Vídeos', basic: '-', pro: '1 por anúncio', enterprise: 'Ilimitado' },
-                  { feature: 'Visitas virtuais 360°', basic: '-', pro: 'Sim', enterprise: 'Sim' },
+                  { feature: 'Numero de anuncios', basic: '2', pro: 'Ilimitado', enterprise: 'Ilimitado' },
+                  { feature: 'Fotografias por anuncio', basic: '5', pro: '20', enterprise: 'Ilimitado' },
+                  { feature: 'Videos', basic: '-', pro: '1 por anuncio', enterprise: 'Ilimitado' },
+                  { feature: 'Visitas virtuais 360', basic: '-', pro: 'Sim', enterprise: 'Sim' },
                   { feature: 'Destaque na pesquisa', basic: '-', pro: 'Sim', enterprise: 'Premium' },
-                  { feature: 'Estatísticas', basic: 'Básicas', pro: 'Detalhadas', enterprise: 'Avançadas + API' },
-                  { feature: 'Selo de verificação', basic: '-', pro: 'Agente AMI', enterprise: 'Agência' },
-                  { feature: 'Suporte', basic: 'Email', pro: 'Prioritário', enterprise: 'Dedicado 24/7' },
-                  { feature: 'CRM integrado', basic: '-', pro: 'Básico', enterprise: 'Completo' },
-                  { feature: 'Gestão de equipa', basic: '-', pro: '-', enterprise: 'Sim' },
-                  { feature: 'API de integração', basic: '-', pro: '-', enterprise: 'Sim' },
+                  { feature: 'Estatisticas', basic: 'Basicas', pro: 'Detalhadas', enterprise: 'Avancadas + API' },
+                  { feature: 'Selo de verificacao', basic: '-', pro: 'Agente AMI', enterprise: 'Agencia' },
+                  { feature: 'Suporte', basic: 'Email', pro: 'Prioritario', enterprise: 'Dedicado 24/7' },
+                  { feature: 'CRM integrado', basic: '-', pro: 'Basico', enterprise: 'Completo' },
+                  { feature: 'Gestao de equipa', basic: '-', pro: '-', enterprise: 'Sim' },
+                  { feature: 'API de integracao', basic: '-', pro: '-', enterprise: 'Sim' },
                   { feature: 'White-label', basic: '-', pro: '-', enterprise: 'Sim' },
                 ].map((row, index) => (
-                  <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
-                    <td className="py-4 px-6 text-gray-700">{row.feature}</td>
+                  <tr key={index} className={`border-b border-gray-100 ${index % 2 === 0 ? 'bg-sand-50/50' : 'bg-white'} hover:bg-primary-50/50 transition-colors`}>
+                    <td className="py-4 px-6 text-gray-700 font-medium">{row.feature}</td>
                     <td className="py-4 px-6 text-center text-gray-600">
                       {row.basic === '-' ? <FaTimes className="text-gray-300 mx-auto" /> : row.basic}
                     </td>
-                    <td className="py-4 px-6 text-center text-gray-900 bg-primary-50">
+                    <td className="py-4 px-6 text-center text-gray-900 bg-terracotta-50/50">
                       {row.pro === '-' ? <FaTimes className="text-gray-300 mx-auto" /> :
-                       row.pro === 'Sim' ? <FaCheck className="text-green-500 mx-auto" /> : row.pro}
+                       row.pro === 'Sim' ? <FaCheck className="text-terracotta-500 mx-auto" /> : row.pro}
                     </td>
                     <td className="py-4 px-6 text-center text-gray-600">
                       {row.enterprise === '-' ? <FaTimes className="text-gray-300 mx-auto" /> :
@@ -242,26 +287,48 @@ const Pricing = () => {
       </div>
 
       {/* FAQ Section */}
-      <div className="py-16">
+      <div className="py-20" id="faq">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+              Duvidas Frequentes
+            </span>
+            <h2 className="section-title">
               Perguntas Frequentes
             </h2>
-            <p className="text-lg text-gray-600">
-              Tem dúvidas? Encontre as respostas abaixo.
+            <p className="section-subtitle">
+              Tem duvidas? Encontre as respostas abaixo
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {faq.question}
-                </h3>
-                <p className="text-gray-600">
-                  {faq.answer}
-                </p>
+              <div
+                key={index}
+                className="card overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full p-6 text-left flex items-center justify-between hover:bg-sand-50 transition-colors"
+                >
+                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                    {faq.question}
+                  </h3>
+                  <FaChevronDown
+                    className={`text-primary-600 flex-shrink-0 transition-transform duration-300 ${
+                      openFaq === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openFaq === index ? 'max-h-48' : 'max-h-0'
+                  }`}
+                >
+                  <p className="px-6 pb-6 text-gray-600">
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -269,51 +336,58 @@ const Pricing = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-primary-600 to-primary-800 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ainda tem dúvidas?
+      <div className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900 py-20 overflow-hidden">
+        {/* Portuguese Pattern Overlay */}
+        <div className="absolute inset-0 bg-portuguese-pattern opacity-10"></div>
+
+        {/* Decorative Blur Circles */}
+        <div className="absolute top-10 right-10 w-64 h-64 bg-terracotta-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-golden-500/20 rounded-full blur-3xl"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium mb-4">
+            Precisa de Ajuda?
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Ainda tem duvidas?
           </h2>
-          <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            A nossa equipa está disponível para ajudar a encontrar a melhor solução para si.
+          <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
+            A nossa equipa esta disponivel para ajudar a encontrar a melhor solucao para si.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               to="/contact"
-              className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
+              className="bg-white text-primary-600 px-8 py-4 rounded-xl font-semibold hover:bg-sand-50 transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center justify-center"
             >
               Falar com a Equipa
             </Link>
             <Link
               to="/register"
-              className="bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-900 transition-colors border border-primary-500 inline-flex items-center justify-center"
+              className="bg-terracotta-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-terracotta-600 transition-all duration-300 shadow-lg shadow-terracotta-500/25 hover:shadow-xl inline-flex items-center justify-center"
             >
-              Começar Agora <FaArrowRight className="ml-2" />
+              Comecar Agora <FaArrowRight className="ml-2" />
             </Link>
           </div>
         </div>
       </div>
 
       {/* Trust Badges */}
-      <div className="py-12 bg-white">
+      <div className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center items-center gap-8 text-gray-400">
-            <div className="flex items-center">
-              <FaCheck className="text-green-500 mr-2" />
-              <span>Pagamento Seguro</span>
-            </div>
-            <div className="flex items-center">
-              <FaCheck className="text-green-500 mr-2" />
-              <span>Cancelamento Fácil</span>
-            </div>
-            <div className="flex items-center">
-              <FaCheck className="text-green-500 mr-2" />
-              <span>Sem Compromisso</span>
-            </div>
-            <div className="flex items-center">
-              <FaCheck className="text-green-500 mr-2" />
-              <span>Suporte em Português</span>
-            </div>
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            {[
+              'Pagamento Seguro',
+              'Cancelamento Facil',
+              'Sem Compromisso',
+              'Suporte em Portugues'
+            ].map((badge, index) => (
+              <div key={index} className="flex items-center bg-sand-50 px-4 py-2 rounded-full">
+                <div className="bg-green-100 p-1 rounded-full mr-2">
+                  <FaCheck className="text-green-600 text-xs" />
+                </div>
+                <span className="text-gray-700 font-medium">{badge}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

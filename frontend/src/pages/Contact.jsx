@@ -10,7 +10,8 @@ import {
   FaQuestionCircle,
   FaBuilding,
   FaUserTie,
-  FaHome
+  FaHome,
+  FaChevronDown
 } from 'react-icons/fa';
 
 const Contact = () => {
@@ -23,6 +24,7 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [openFaq, setOpenFaq] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -51,56 +53,85 @@ const Contact = () => {
   };
 
   const categories = [
-    { value: 'general', label: 'Questão Geral' },
-    { value: 'support', label: 'Suporte Técnico' },
+    { value: 'general', label: 'Questao Geral' },
+    { value: 'support', label: 'Suporte Tecnico' },
     { value: 'sales', label: 'Vendas e Planos' },
     { value: 'partnership', label: 'Parcerias' },
     { value: 'press', label: 'Imprensa' },
     { value: 'privacy', label: 'Privacidade e Dados' },
-    { value: 'complaint', label: 'Reclamação' },
+    { value: 'complaint', label: 'Reclamacao' },
   ];
 
   const quickLinks = [
     {
       icon: FaQuestionCircle,
       title: 'Perguntas Frequentes',
-      description: 'Encontre respostas para as questões mais comuns.',
+      description: 'Encontre respostas para as questoes mais comuns.',
       link: '/pricing#faq',
       linkText: 'Ver FAQs'
     },
     {
       icon: FaBuilding,
-      title: 'Para Agências',
-      description: 'Soluções empresariais personalizadas.',
+      title: 'Para Agencias',
+      description: 'Solucoes empresariais personalizadas.',
       link: '/pricing',
       linkText: 'Ver Planos'
     },
     {
       icon: FaUserTie,
       title: 'Tornar-me Agente',
-      description: 'Registe-se como profissional imobiliário.',
+      description: 'Registe-se como profissional imobiliario.',
       link: '/register?role=agent',
       linkText: 'Registar'
     },
     {
       icon: FaHome,
-      title: 'Anunciar Imóvel',
-      description: 'Publique o seu imóvel na nossa plataforma.',
+      title: 'Anunciar Imovel',
+      description: 'Publique o seu imovel na nossa plataforma.',
       link: '/register?role=seller',
-      linkText: 'Começar'
+      linkText: 'Comecar'
+    },
+  ];
+
+  const faqs = [
+    {
+      question: 'Qual e o tempo medio de resposta?',
+      answer: 'Respondemos a todas as mensagens num prazo maximo de 48 horas uteis. Para questoes urgentes, recomendamos o contacto telefonico.'
+    },
+    {
+      question: 'Como posso contactar o suporte tecnico?',
+      answer: 'Pode contactar o suporte tecnico atraves deste formulario selecionando a categoria "Suporte Tecnico", ou enviando email diretamente para suporte@realestate-pt.com.'
+    },
+    {
+      question: 'Onde posso encontrar informacoes sobre precos?',
+      answer: 'Visite a nossa pagina de Precos para ver todos os planos disponiveis e suas funcionalidades. Para planos empresariais personalizados, entre em contacto connosco.'
+    },
+    {
+      question: 'Como exerco os meus direitos de protecao de dados?',
+      answer: 'Para questoes relacionadas com RGPD e protecao de dados, envie um email para privacidade@realestate-pt.com com o seu pedido especifico.'
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-28">
+    <div className="min-h-screen bg-sand-50 pt-28">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      <div className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900 text-white py-20 overflow-hidden">
+        {/* Portuguese Pattern Overlay */}
+        <div className="absolute inset-0 bg-portuguese-pattern opacity-10"></div>
+
+        {/* Decorative Blur Circles */}
+        <div className="absolute top-10 left-10 w-64 h-64 bg-terracotta-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-golden-500/20 rounded-full blur-3xl"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium mb-4">
+            Estamos Aqui Para Ajudar
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Contacte-nos
           </h1>
           <p className="text-xl text-primary-100 max-w-2xl mx-auto">
-            Estamos aqui para ajudar. Entre em contacto connosco e responderemos o mais brevemente possível.
+            Estamos aqui para ajudar. Entre em contacto connosco e responderemos o mais brevemente possivel.
           </p>
         </div>
       </div>
@@ -109,10 +140,16 @@ const Contact = () => {
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <div className="card p-8">
+              <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+                Formulario de Contacto
+              </span>
+              <h2 className="section-title mb-2">
                 Envie-nos uma Mensagem
               </h2>
+              <p className="section-subtitle mb-8">
+                Preencha o formulario e entraremos em contacto consigo
+              </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
@@ -128,7 +165,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="input-field"
                       placeholder="O seu nome"
                     />
                   </div>
@@ -145,7 +182,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="input-field"
                       placeholder="seu@email.com"
                     />
                   </div>
@@ -163,7 +200,7 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="input-field"
                       placeholder="+351 912 345 678"
                     />
                   </div>
@@ -179,7 +216,7 @@ const Contact = () => {
                       value={formData.category}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="input-field"
                     >
                       {categories.map((cat) => (
                         <option key={cat.value} value={cat.value}>
@@ -202,8 +239,8 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
-                    placeholder="Resumo da sua questão"
+                    className="input-field"
+                    placeholder="Resumo da sua questao"
                   />
                 </div>
 
@@ -219,25 +256,25 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none"
-                    placeholder="Descreva a sua questão em detalhe..."
+                    className="input-field resize-none"
+                    placeholder="Descreva a sua questao em detalhe..."
                   />
                 </div>
 
                 {/* Privacy Notice */}
-                <div className="text-sm text-gray-500">
-                  Ao submeter este formulário, concorda com a nossa{' '}
-                  <Link to="/privacy" className="text-primary-600 hover:underline">
-                    Política de Privacidade
+                <div className="text-sm text-gray-500 bg-sand-100 p-4 rounded-xl">
+                  Ao submeter este formulario, concorda com a nossa{' '}
+                  <Link to="/privacy" className="text-primary-600 hover:underline font-medium">
+                    Politica de Privacidade
                   </Link>
-                  . Os seus dados serão utilizados apenas para responder à sua mensagem.
+                  . Os seus dados serao utilizados apenas para responder a sua mensagem.
                 </div>
 
                 {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-primary-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  className="btn-primary w-full py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                 >
                   {isSubmitting ? (
                     <>
@@ -259,52 +296,55 @@ const Contact = () => {
           </div>
 
           {/* Contact Info Sidebar */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Contact Details */}
-            <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="card p-8">
+              <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+                Contactos Diretos
+              </span>
               <h3 className="text-xl font-bold text-gray-900 mb-6">
-                Informações de Contacto
+                Informacoes de Contacto
               </h3>
 
               <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="bg-primary-100 p-3 rounded-lg mr-4">
-                    <FaEnvelope className="text-primary-600" />
+                <div className="flex items-start group">
+                  <div className="bg-gradient-to-br from-primary-500 to-primary-600 p-3 rounded-xl mr-4 shadow-lg shadow-primary-500/20 group-hover:scale-110 transition-transform">
+                    <FaEnvelope className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900">Email</h4>
+                    <h4 className="font-semibold text-gray-900">Email</h4>
                     <p className="text-gray-600">geral@realestate-pt.com</p>
-                    <p className="text-gray-600 text-sm">suporte@realestate-pt.com</p>
+                    <p className="text-gray-500 text-sm">suporte@realestate-pt.com</p>
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <div className="bg-primary-100 p-3 rounded-lg mr-4">
-                    <FaPhone className="text-primary-600" />
+                <div className="flex items-start group">
+                  <div className="bg-gradient-to-br from-primary-500 to-primary-600 p-3 rounded-xl mr-4 shadow-lg shadow-primary-500/20 group-hover:scale-110 transition-transform">
+                    <FaPhone className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900">Telefone</h4>
+                    <h4 className="font-semibold text-gray-900">Telefone</h4>
                     <p className="text-gray-600">+351 210 000 000</p>
                     <p className="text-gray-500 text-sm">Chamada para rede fixa nacional</p>
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <div className="bg-primary-100 p-3 rounded-lg mr-4">
-                    <FaMapMarkerAlt className="text-primary-600" />
+                <div className="flex items-start group">
+                  <div className="bg-gradient-to-br from-primary-500 to-primary-600 p-3 rounded-xl mr-4 shadow-lg shadow-primary-500/20 group-hover:scale-110 transition-transform">
+                    <FaMapMarkerAlt className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900">Morada</h4>
+                    <h4 className="font-semibold text-gray-900">Morada</h4>
                     <p className="text-gray-600">Lisboa, Portugal</p>
                   </div>
                 </div>
 
-                <div className="flex items-start">
-                  <div className="bg-primary-100 p-3 rounded-lg mr-4">
-                    <FaClock className="text-primary-600" />
+                <div className="flex items-start group">
+                  <div className="bg-gradient-to-br from-primary-500 to-primary-600 p-3 rounded-xl mr-4 shadow-lg shadow-primary-500/20 group-hover:scale-110 transition-transform">
+                    <FaClock className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900">Horário</h4>
+                    <h4 className="font-semibold text-gray-900">Horario</h4>
                     <p className="text-gray-600">Segunda a Sexta</p>
                     <p className="text-gray-600">09:00 - 18:00</p>
                   </div>
@@ -313,50 +353,112 @@ const Contact = () => {
             </div>
 
             {/* Response Time */}
-            <div className="bg-primary-50 rounded-2xl p-6">
-              <h4 className="font-semibold text-gray-900 mb-2">
-                Tempo de Resposta
-              </h4>
+            <div className="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-6 border border-primary-200">
+              <div className="flex items-center mb-3">
+                <div className="bg-primary-500 p-2 rounded-lg mr-3">
+                  <FaClock className="text-white text-sm" />
+                </div>
+                <h4 className="font-semibold text-gray-900">
+                  Tempo de Resposta
+                </h4>
+              </div>
               <p className="text-gray-600 text-sm">
-                Respondemos a todas as mensagens num prazo máximo de <strong>48 horas úteis</strong>.
-                Para questões urgentes, contacte-nos por telefone.
+                Respondemos a todas as mensagens num prazo maximo de <strong className="text-primary-700">48 horas uteis</strong>.
+                Para questoes urgentes, contacte-nos por telefone.
               </p>
             </div>
 
             {/* Data Protection Notice */}
-            <div className="bg-gray-100 rounded-2xl p-6">
+            <div className="bg-gradient-to-br from-sand-100 to-sand-200 rounded-2xl p-6 border border-sand-300">
               <h4 className="font-semibold text-gray-900 mb-2">
-                Proteção de Dados
+                Protecao de Dados
               </h4>
               <p className="text-gray-600 text-sm mb-3">
-                Para questões relacionadas com os seus dados pessoais ou exercer os seus direitos ao abrigo do RGPD:
+                Para questoes relacionadas com os seus dados pessoais ou exercer os seus direitos ao abrigo do RGPD:
               </p>
-              <p className="text-sm">
+              <p className="text-sm mb-2">
                 <strong>Email:</strong> privacidade@realestate-pt.com
               </p>
-              <Link to="/privacy" className="text-primary-600 hover:underline text-sm">
-                Ver Política de Privacidade
+              <Link to="/privacy" className="text-primary-600 hover:text-primary-700 text-sm font-medium inline-flex items-center">
+                Ver Politica de Privacidade
+                <FaChevronDown className="ml-1 -rotate-90 text-xs" />
               </Link>
             </div>
           </div>
         </div>
 
         {/* Quick Links Section */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-            Links Úteis
-          </h2>
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+              Recursos Uteis
+            </span>
+            <h2 className="section-title">
+              Links Uteis
+            </h2>
+            <p className="section-subtitle">
+              Encontre rapidamente o que procura
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {quickLinks.map((item, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
-                <div className="bg-primary-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                  <item.icon className="text-primary-600 text-xl" />
+              <div key={index} className="feature-card group">
+                <div className="bg-gradient-to-br from-primary-500 to-primary-600 w-14 h-14 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-primary-500/20 group-hover:scale-110 transition-transform">
+                  <item.icon className="text-white text-xl" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm mb-4">{item.description}</p>
-                <Link to={item.link} className="text-primary-600 hover:text-primary-700 text-sm font-medium">
-                  {item.linkText} &rarr;
+                <Link to={item.link} className="text-primary-600 hover:text-primary-700 text-sm font-medium inline-flex items-center group-hover:translate-x-1 transition-transform">
+                  {item.linkText}
+                  <FaChevronDown className="ml-1 -rotate-90 text-xs" />
                 </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* FAQ Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+              Duvidas Frequentes
+            </span>
+            <h2 className="section-title">
+              Perguntas Frequentes
+            </h2>
+            <p className="section-subtitle">
+              Respostas rapidas as questoes mais comuns
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="card overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  className="w-full p-6 text-left flex items-center justify-between hover:bg-sand-50 transition-colors"
+                >
+                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                    {faq.question}
+                  </h3>
+                  <FaChevronDown
+                    className={`text-primary-600 flex-shrink-0 transition-transform duration-300 ${
+                      openFaq === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openFaq === index ? 'max-h-48' : 'max-h-0'
+                  }`}
+                >
+                  <p className="px-6 pb-6 text-gray-600">
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -364,31 +466,33 @@ const Contact = () => {
       </div>
 
       {/* Alternative Dispute Resolution */}
-      <div className="bg-gray-100 py-12">
+      <div className="bg-gradient-to-br from-sand-100 to-sand-200 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-xl p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">
-              Resolução Alternativa de Litígios
+          <div className="card p-8">
+            <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+              Informacao Legal
+            </span>
+            <h3 className="font-bold text-gray-900 text-xl mb-4">
+              Resolucao Alternativa de Litigios
             </h3>
-            <p className="text-gray-600 text-sm mb-4">
-              Em conformidade com a legislação europeia e portuguesa, informamos que, em caso de litígio,
-              pode recorrer a uma entidade de resolução alternativa de litígios de consumo:
+            <p className="text-gray-600 mb-6">
+              Em conformidade com a legislacao europeia e portuguesa, informamos que, em caso de litigio,
+              pode recorrer a uma entidade de resolucao alternativa de litigios de consumo:
             </p>
-            <div className="flex flex-wrap gap-4 text-sm">
+            <div className="flex flex-wrap gap-4">
               <a
                 href="https://www.consumidor.gov.pt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary-600 hover:underline"
+                className="btn-secondary"
               >
                 Portal do Consumidor
               </a>
-              <span className="text-gray-300">|</span>
               <a
                 href="https://ec.europa.eu/consumers/odr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary-600 hover:underline"
+                className="btn-secondary"
               >
                 Plataforma ODR da UE
               </a>

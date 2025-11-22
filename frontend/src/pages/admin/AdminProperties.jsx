@@ -8,7 +8,9 @@ import {
   FaEye,
   FaTrash,
   FaFilter,
-  FaCheckDouble
+  FaCheckDouble,
+  FaHome,
+  FaBuilding
 } from 'react-icons/fa';
 
 const AdminProperties = () => {
@@ -43,73 +45,73 @@ const AdminProperties = () => {
       });
     } catch (error) {
       console.error('Error fetching properties:', error);
-      toast.error('Erro ao carregar imóveis');
+      toast.error('Erro ao carregar imoveis');
     } finally {
       setLoading(false);
     }
   };
 
   const handleApprove = async (propertyId) => {
-    if (!confirm('Tem a certeza que deseja aprovar este imóvel?')) return;
+    if (!confirm('Tem a certeza que deseja aprovar este imovel?')) return;
 
     try {
       await adminAPI.approveProperty(propertyId);
-      toast.success('Imóvel aprovado com sucesso!');
+      toast.success('Imovel aprovado com sucesso!');
       fetchProperties();
     } catch (error) {
       console.error('Error approving property:', error);
-      toast.error('Erro ao aprovar imóvel');
+      toast.error('Erro ao aprovar imovel');
     }
   };
 
   const handleReject = async () => {
     if (!rejectionReason.trim()) {
-      toast.error('Por favor, forneça um motivo para a rejeição');
+      toast.error('Por favor, forneca um motivo para a rejeicao');
       return;
     }
 
     try {
       await adminAPI.rejectProperty(rejectPropertyId, rejectionReason);
-      toast.success('Imóvel rejeitado');
+      toast.success('Imovel rejeitado');
       setShowRejectModal(false);
       setRejectPropertyId(null);
       setRejectionReason('');
       fetchProperties();
     } catch (error) {
       console.error('Error rejecting property:', error);
-      toast.error('Erro ao rejeitar imóvel');
+      toast.error('Erro ao rejeitar imovel');
     }
   };
 
   const handleBulkApprove = async () => {
     if (selectedProperties.length === 0) {
-      toast.error('Selecione pelo menos um imóvel');
+      toast.error('Selecione pelo menos um imovel');
       return;
     }
 
-    if (!confirm(`Aprovar ${selectedProperties.length} imóveis?`)) return;
+    if (!confirm(`Aprovar ${selectedProperties.length} imoveis?`)) return;
 
     try {
       await adminAPI.bulkApproveProperties(selectedProperties);
-      toast.success(`${selectedProperties.length} imóveis aprovados!`);
+      toast.success(`${selectedProperties.length} imoveis aprovados!`);
       setSelectedProperties([]);
       fetchProperties();
     } catch (error) {
       console.error('Error bulk approving:', error);
-      toast.error('Erro ao aprovar imóveis em massa');
+      toast.error('Erro ao aprovar imoveis em massa');
     }
   };
 
   const handleDelete = async (propertyId) => {
-    if (!confirm('Tem a certeza que deseja eliminar este imóvel? Esta ação não pode ser revertida.')) return;
+    if (!confirm('Tem a certeza que deseja eliminar este imovel? Esta acao nao pode ser revertida.')) return;
 
     try {
       await adminAPI.deleteProperty(propertyId);
-      toast.success('Imóvel eliminado');
+      toast.success('Imovel eliminado');
       fetchProperties();
     } catch (error) {
       console.error('Error deleting property:', error);
-      toast.error('Erro ao eliminar imóvel');
+      toast.error('Erro ao eliminar imovel');
     }
   };
 
@@ -139,301 +141,329 @@ const AdminProperties = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-8">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-8">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Gestão de Imóveis
-          </h1>
-          <p className="text-gray-600">
-            {pagination.total || 0} imóveis no total
-          </p>
+    <div className="min-h-screen bg-sand-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-8">
+        {/* Header */}
+        <div className="flex justify-between items-start mb-8">
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center">
+              <FaHome className="text-white text-xl" />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Gestao de Imoveis
+              </h1>
+              <p className="text-gray-600">
+                {pagination.total || 0} imoveis no total
+              </p>
+            </div>
+          </div>
+          {selectedProperties.length > 0 && (
+            <button
+              onClick={handleBulkApprove}
+              className="btn-primary flex items-center space-x-2"
+            >
+              <FaCheckDouble />
+              <span>Aprovar Selecionados ({selectedProperties.length})</span>
+            </button>
+          )}
         </div>
-        {selectedProperties.length > 0 && (
-          <button
-            onClick={handleBulkApprove}
-            className="btn-primary flex items-center space-x-2"
-          >
-            <FaCheckDouble />
-            <span>Aprovar Selecionados ({selectedProperties.length})</span>
-          </button>
-        )}
-      </div>
 
-      {/* Filters */}
-      <div className="card mb-6">
-        <div className="flex items-center space-x-2 mb-4">
-          <FaFilter className="text-gray-600" />
-          <h3 className="text-lg font-semibold text-gray-900">Filtros</h3>
+        {/* Filters */}
+        <div className="card rounded-2xl mb-6">
+          <div className="flex items-center space-x-2 mb-4">
+            <div className="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg flex items-center justify-center">
+              <FaFilter className="text-white text-sm" />
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900">Filtros</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <select
+              value={filters.approvalStatus}
+              onChange={(e) => setFilters({ ...filters, approvalStatus: e.target.value, page: 1 })}
+              className="input-field"
+            >
+              <option value="">Todos os Estados de Aprovacao</option>
+              <option value="pending">Pendente</option>
+              <option value="approved">Aprovado</option>
+              <option value="rejected">Rejeitado</option>
+            </select>
+
+            <select
+              value={filters.status}
+              onChange={(e) => setFilters({ ...filters, status: e.target.value, page: 1 })}
+              className="input-field"
+            >
+              <option value="">Todos os Estados</option>
+              <option value="for-sale">A Venda</option>
+              <option value="for-rent">Para Arrendar</option>
+              <option value="sold">Vendido</option>
+              <option value="rented">Arrendado</option>
+              <option value="draft">Rascunho</option>
+            </select>
+
+            <select
+              value={filters.propertyType}
+              onChange={(e) => setFilters({ ...filters, propertyType: e.target.value, page: 1 })}
+              className="input-field"
+            >
+              <option value="">Todos os Tipos</option>
+              <option value="apartment">Apartamento</option>
+              <option value="house">Casa</option>
+              <option value="villa">Moradia</option>
+              <option value="commercial">Comercial</option>
+              <option value="land">Terreno</option>
+            </select>
+
+            <button
+              onClick={() => setFilters({ status: '', approvalStatus: '', district: '', propertyType: '', page: 1 })}
+              className="btn-secondary"
+            >
+              Limpar Filtros
+            </button>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <select
-            value={filters.approvalStatus}
-            onChange={(e) => setFilters({ ...filters, approvalStatus: e.target.value, page: 1 })}
-            className="input-field"
-          >
-            <option value="">Todos os Estados de Aprovação</option>
-            <option value="pending">Pendente</option>
-            <option value="approved">Aprovado</option>
-            <option value="rejected">Rejeitado</option>
-          </select>
 
-          <select
-            value={filters.status}
-            onChange={(e) => setFilters({ ...filters, status: e.target.value, page: 1 })}
-            className="input-field"
-          >
-            <option value="">Todos os Estados</option>
-            <option value="for-sale">À Venda</option>
-            <option value="for-rent">Para Arrendar</option>
-            <option value="sold">Vendido</option>
-            <option value="rented">Arrendado</option>
-            <option value="draft">Rascunho</option>
-          </select>
-
-          <select
-            value={filters.propertyType}
-            onChange={(e) => setFilters({ ...filters, propertyType: e.target.value, page: 1 })}
-            className="input-field"
-          >
-            <option value="">Todos os Tipos</option>
-            <option value="apartment">Apartamento</option>
-            <option value="house">Casa</option>
-            <option value="villa">Moradia</option>
-            <option value="commercial">Comercial</option>
-            <option value="land">Terreno</option>
-          </select>
-
-          <button
-            onClick={() => setFilters({ status: '', approvalStatus: '', district: '', propertyType: '', page: 1 })}
-            className="btn-secondary"
-          >
-            Limpar Filtros
-          </button>
-        </div>
-      </div>
-
-      {/* Properties Table */}
-      <div className="card overflow-hidden">
-        <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-4 py-3 text-left">
-                  <input
-                    type="checkbox"
-                    checked={selectedProperties.length === properties.length && properties.length > 0}
-                    onChange={toggleSelectAll}
-                    className="rounded border-gray-300 text-primary-600 focus:ring-primary-500"
-                  />
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Imóvel
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Proprietário
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Preço
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Estado
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Aprovação
-                </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Ações
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {properties.map((property) => (
-                <tr key={property._id} className="hover:bg-gray-50">
-                  <td className="px-4 py-4">
+        {/* Properties Table */}
+        <div className="card rounded-2xl overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="min-w-full">
+              <thead className="bg-gradient-to-r from-sand-100 to-sand-50">
+                <tr>
+                  <th className="px-4 py-4 text-left">
                     <input
                       type="checkbox"
-                      checked={selectedProperties.includes(property._id)}
-                      onChange={() => togglePropertySelection(property._id)}
-                      className="rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+                      checked={selectedProperties.length === properties.length && properties.length > 0}
+                      onChange={toggleSelectAll}
+                      className="rounded border-gray-300 text-primary-600 focus:ring-primary-500 w-4 h-4"
                     />
-                  </td>
-                  <td className="px-6 py-4">
-                    <div className="flex items-center">
-                      {property.images && property.images.length > 0 ? (
-                        <img
-                          src={property.images[0].url}
-                          alt={property.title}
-                          className="h-12 w-12 rounded object-cover mr-3"
-                        />
-                      ) : (
-                        <div className="h-12 w-12 bg-gray-200 rounded mr-3 flex items-center justify-center">
-                          <FaEye className="text-gray-400" />
-                        </div>
-                      )}
-                      <div>
-                        <div className="text-sm font-medium text-gray-900">{property.title}</div>
-                        <div className="text-sm text-gray-500">
-                          {property.address?.city}, {property.address?.district}
+                  </th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    Imovel
+                  </th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    Proprietario
+                  </th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    Preco
+                  </th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    Estado
+                  </th>
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    Aprovacao
+                  </th>
+                  <th className="px-6 py-4 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                    Acoes
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-sand-100">
+                {properties.map((property) => (
+                  <tr key={property._id} className="hover:bg-sand-50 transition-colors">
+                    <td className="px-4 py-4">
+                      <input
+                        type="checkbox"
+                        checked={selectedProperties.includes(property._id)}
+                        onChange={() => togglePropertySelection(property._id)}
+                        className="rounded border-gray-300 text-primary-600 focus:ring-primary-500 w-4 h-4"
+                      />
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="flex items-center">
+                        {property.images && property.images.length > 0 ? (
+                          <img
+                            src={property.images[0].url}
+                            alt={property.title}
+                            className="h-14 w-14 rounded-xl object-cover mr-4 shadow-sm"
+                          />
+                        ) : (
+                          <div className="h-14 w-14 bg-gradient-to-br from-sand-200 to-sand-300 rounded-xl mr-4 flex items-center justify-center">
+                            <FaBuilding className="text-sand-500" />
+                          </div>
+                        )}
+                        <div>
+                          <div className="text-sm font-semibold text-gray-900">{property.title}</div>
+                          <div className="text-sm text-gray-500">
+                            {property.address?.city}, {property.address?.district}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <div className="text-sm text-gray-900">{property.owner?.name}</div>
-                    <div className="text-sm text-gray-500">{property.owner?.email}</div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-semibold text-gray-900">
-                      {new Intl.NumberFormat('pt-PT', {
-                        style: 'currency',
-                        currency: 'EUR',
-                        maximumFractionDigits: 0
-                      }).format(property.price)}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                      getStatusBadge(property.status)
-                    }`}>
-                      {getStatusLabel(property.status)}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                      getApprovalBadge(property.approvalStatus)
-                    }`}>
-                      {getApprovalLabel(property.approvalStatus)}
-                    </span>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <div className="flex justify-end space-x-2">
-                      {property.approvalStatus === 'pending' && (
-                        <>
-                          <button
-                            onClick={() => handleApprove(property._id)}
-                            className="text-green-600 hover:text-green-900"
-                            title="Aprovar"
-                          >
-                            <FaCheck />
-                          </button>
-                          <button
-                            onClick={() => openRejectModal(property._id)}
-                            className="text-red-600 hover:text-red-900"
-                            title="Rejeitar"
-                          >
-                            <FaTimes />
-                          </button>
-                        </>
-                      )}
-                      <a
-                        href={`/properties/${property._id}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-900"
-                        title="Ver"
-                      >
-                        <FaEye />
-                      </a>
-                      <button
-                        onClick={() => handleDelete(property._id)}
-                        className="text-red-600 hover:text-red-900"
-                        title="Eliminar"
-                      >
-                        <FaTrash />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="text-sm font-medium text-gray-900">{property.owner?.name}</div>
+                      <div className="text-sm text-gray-500">{property.owner?.email}</div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="text-sm font-bold text-primary-600 bg-primary-50 px-3 py-1 rounded-lg inline-block">
+                        {new Intl.NumberFormat('pt-PT', {
+                          style: 'currency',
+                          currency: 'EUR',
+                          maximumFractionDigits: 0
+                        }).format(property.price)}
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span className={`px-3 py-1.5 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                        getStatusBadge(property.status)
+                      }`}>
+                        {getStatusLabel(property.status)}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span className={`px-3 py-1.5 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                        getApprovalBadge(property.approvalStatus)
+                      }`}>
+                        {getApprovalLabel(property.approvalStatus)}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      <div className="flex justify-end space-x-2">
+                        {property.approvalStatus === 'pending' && (
+                          <>
+                            <button
+                              onClick={() => handleApprove(property._id)}
+                              className="w-9 h-9 bg-green-100 hover:bg-green-200 text-green-600 rounded-lg flex items-center justify-center transition-colors"
+                              title="Aprovar"
+                            >
+                              <FaCheck />
+                            </button>
+                            <button
+                              onClick={() => openRejectModal(property._id)}
+                              className="w-9 h-9 bg-red-100 hover:bg-red-200 text-red-600 rounded-lg flex items-center justify-center transition-colors"
+                              title="Rejeitar"
+                            >
+                              <FaTimes />
+                            </button>
+                          </>
+                        )}
+                        <a
+                          href={`/properties/${property._id}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-9 h-9 bg-blue-100 hover:bg-blue-200 text-blue-600 rounded-lg flex items-center justify-center transition-colors"
+                          title="Ver"
+                        >
+                          <FaEye />
+                        </a>
+                        <button
+                          onClick={() => handleDelete(property._id)}
+                          className="w-9 h-9 bg-red-100 hover:bg-red-200 text-red-600 rounded-lg flex items-center justify-center transition-colors"
+                          title="Eliminar"
+                        >
+                          <FaTrash />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-        {/* Pagination */}
-        {pagination.pages > 1 && (
-          <div className="bg-gray-50 px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
-            <div className="flex-1 flex justify-between sm:hidden">
-              <button
-                onClick={() => setFilters({ ...filters, page: filters.page - 1 })}
-                disabled={filters.page === 1}
-                className="btn-secondary"
-              >
-                Anterior
-              </button>
-              <button
-                onClick={() => setFilters({ ...filters, page: filters.page + 1 })}
-                disabled={filters.page === pagination.pages}
-                className="btn-secondary"
-              >
-                Próxima
-              </button>
-            </div>
-            <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-              <div>
-                <p className="text-sm text-gray-700">
-                  Página <span className="font-medium">{pagination.page}</span> de{' '}
-                  <span className="font-medium">{pagination.pages}</span>
-                </p>
+          {/* Pagination */}
+          {pagination.pages > 1 && (
+            <div className="bg-sand-50 px-6 py-4 flex items-center justify-between border-t border-sand-100">
+              <div className="flex-1 flex justify-between sm:hidden">
+                <button
+                  onClick={() => setFilters({ ...filters, page: filters.page - 1 })}
+                  disabled={filters.page === 1}
+                  className="btn-secondary"
+                >
+                  Anterior
+                </button>
+                <button
+                  onClick={() => setFilters({ ...filters, page: filters.page + 1 })}
+                  disabled={filters.page === pagination.pages}
+                  className="btn-secondary"
+                >
+                  Proxima
+                </button>
               </div>
-              <div>
-                <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+              <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-sm text-gray-700">
+                    Pagina <span className="font-semibold">{pagination.page}</span> de{' '}
+                    <span className="font-semibold">{pagination.pages}</span>
+                  </p>
+                </div>
+                <div className="flex space-x-2">
                   <button
                     onClick={() => setFilters({ ...filters, page: filters.page - 1 })}
                     disabled={filters.page === 1}
-                    className="btn-secondary rounded-r-none"
+                    className="btn-secondary"
                   >
                     Anterior
                   </button>
                   <button
                     onClick={() => setFilters({ ...filters, page: filters.page + 1 })}
                     disabled={filters.page === pagination.pages}
-                    className="btn-secondary rounded-l-none"
+                    className="btn-secondary"
                   >
-                    Próxima
+                    Proxima
                   </button>
-                </nav>
+                </div>
               </div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
 
-      {/* Reject Modal */}
-      {showRejectModal && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-            <div className="mt-3">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">
-                Rejeitar Imóvel
-              </h3>
-              <textarea
-                value={rejectionReason}
-                onChange={(e) => setRejectionReason(e.target.value)}
-                placeholder="Motivo da rejeição..."
-                className="input-field w-full h-32 resize-none"
-                autoFocus
-              />
-              <div className="flex justify-end space-x-3 mt-4">
+        {/* Reject Modal */}
+        {showRejectModal && (
+          <div className="fixed inset-0 bg-gray-900 bg-opacity-50 overflow-y-auto h-full w-full z-50 flex items-center justify-center">
+            <div className="relative mx-auto p-6 border max-w-md w-full shadow-2xl rounded-2xl bg-white">
+              <button
+                onClick={() => {
+                  setShowRejectModal(false);
+                  setRejectPropertyId(null);
+                  setRejectionReason('');
+                }}
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <FaTimes className="text-xl" />
+              </button>
+
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <FaTimes className="text-2xl text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900">
+                  Rejeitar Imovel
+                </h3>
+                <p className="text-sm text-gray-500 mt-1">
+                  Por favor, forneca um motivo para a rejeicao
+                </p>
+              </div>
+
+              <div className="mb-6">
+                <textarea
+                  value={rejectionReason}
+                  onChange={(e) => setRejectionReason(e.target.value)}
+                  placeholder="Motivo da rejeicao..."
+                  className="input-field w-full h-32 resize-none"
+                  autoFocus
+                />
+              </div>
+
+              <div className="flex space-x-3">
                 <button
                   onClick={() => {
                     setShowRejectModal(false);
                     setRejectPropertyId(null);
                     setRejectionReason('');
                   }}
-                  className="btn-secondary"
+                  className="btn-secondary flex-1"
                 >
                   Cancelar
                 </button>
-                <button onClick={handleReject} className="btn-danger">
+                <button onClick={handleReject} className="btn-danger flex-1">
                   Rejeitar
                 </button>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
@@ -441,7 +471,7 @@ const AdminProperties = () => {
 // Helper Functions
 const getStatusLabel = (status) => {
   const labels = {
-    'for-sale': 'À Venda',
+    'for-sale': 'A Venda',
     'for-rent': 'Para Arrendar',
     'sold': 'Vendido',
     'rented': 'Arrendado',
@@ -453,11 +483,11 @@ const getStatusLabel = (status) => {
 
 const getStatusBadge = (status) => {
   const badges = {
-    'for-sale': 'bg-green-100 text-green-800',
-    'for-rent': 'bg-blue-100 text-blue-800',
+    'for-sale': 'badge-success',
+    'for-rent': 'badge-info',
     'sold': 'bg-gray-100 text-gray-800',
     'rented': 'bg-gray-100 text-gray-800',
-    'pending': 'bg-yellow-100 text-yellow-800',
+    'pending': 'badge-warning',
     'draft': 'bg-orange-100 text-orange-800'
   };
   return badges[status] || 'bg-gray-100 text-gray-800';
@@ -474,9 +504,9 @@ const getApprovalLabel = (status) => {
 
 const getApprovalBadge = (status) => {
   const badges = {
-    pending: 'bg-yellow-100 text-yellow-800',
-    approved: 'bg-green-100 text-green-800',
-    rejected: 'bg-red-100 text-red-800'
+    pending: 'badge-warning',
+    approved: 'badge-success',
+    rejected: 'badge-danger'
   };
   return badges[status] || 'bg-gray-100 text-gray-800';
 };
