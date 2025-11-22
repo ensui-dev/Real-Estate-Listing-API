@@ -122,7 +122,7 @@ const Footer = () => {
                 <span className="w-8 h-0.5 bg-golden-500 mr-3"></span>
                 Contacto
               </h3>
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-4">
                 <li className="flex items-center text-gray-400">
                   <FaMapMarkerAlt className="text-golden-500 mr-3" />
                   <span>Lisboa, Portugal</span>
@@ -138,8 +138,14 @@ const Footer = () => {
                   <span>+351 21 000 0000</span>
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
 
-              {/* Legal Links */}
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800/50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="flex flex-wrap gap-4 text-sm">
                 <Link to="/terms" className="text-gray-500 hover:text-gray-300 transition-colors">
                   Termos
@@ -151,14 +157,6 @@ const Footer = () => {
                   Cookies
                 </Link>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800/50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="flex flex-col md:flex-row justify-center items-center">
               <p className="text-gray-500 text-sm">
                 &copy; {new Date().getFullYear()} LusitanEstate. Todos os direitos reservados.
               </p>
