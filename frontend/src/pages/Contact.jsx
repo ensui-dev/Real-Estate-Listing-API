@@ -53,8 +53,8 @@ const Contact = () => {
   };
 
   const categories = [
-    { value: 'general', label: 'Questao Geral' },
-    { value: 'support', label: 'Suporte Tecnico' },
+    { value: 'general', label: 'Questão Geral' },
+    { value: 'support', label: 'Suporte Técnico' },
     { value: 'sales', label: 'Vendas e Planos' },
     { value: 'partnership', label: 'Parcerias' },
     { value: 'press', label: 'Imprensa' },
@@ -66,13 +66,13 @@ const Contact = () => {
     {
       icon: FaQuestionCircle,
       title: 'Perguntas Frequentes',
-      description: 'Encontre respostas para as questoes mais comuns.',
+      description: 'Encontre respostas para as questões mais comuns.',
       link: '/pricing#faq',
       linkText: 'Ver FAQs'
     },
     {
       icon: FaBuilding,
-      title: 'Para Agencias',
+      title: 'Para Agências',
       description: 'Soluções empresariais personalizadas.',
       link: '/pricing',
       linkText: 'Ver Planos'
@@ -89,26 +89,26 @@ const Contact = () => {
       title: 'Anunciar Imóvel',
       description: 'Publique o seu imóvel na nossa plataforma.',
       link: '/register?role=seller',
-      linkText: 'Comecar'
+      linkText: 'Começar'
     },
   ];
 
   const faqs = [
     {
-      question: 'Qual e o tempo medio de resposta?',
-      answer: 'Respondemos a todas as mensagens num prazo maximo de 48 horas uteis. Para questoes urgentes, recomendamos o contacto telefonico.'
+      question: 'Qual é o tempo médio de resposta?',
+      answer: 'Respondemos a todas as mensagens num prazo máximo de 48 horas úteis. Para questões urgentes, recomendamos o contacto telefónico.'
     },
     {
-      question: 'Como posso contactar o suporte tecnico?',
-      answer: 'Pode contactar o suporte tecnico atraves deste formulario selecionando a categoria "Suporte Tecnico", ou enviando email diretamente para suporte@realestate-pt.com.'
+      question: 'Como posso contactar o suporte técnico?',
+      answer: 'Pode contactar o suporte técnico através deste formulário selecionando a categoria "Suporte Técnico", ou enviando email diretamente para suporte@realestate-pt.com.'
     },
     {
-      question: 'Onde posso encontrar informacoes sobre precos?',
+      question: 'Onde posso encontrar informações sobre preços?',
       answer: 'Visite a nossa página de Preços para ver todos os planos disponíveis e suas funcionalidades. Para planos empresariais personalizados, entre em contacto connosco.'
     },
     {
-      question: 'Como exerco os meus direitos de protecao de dados?',
-      answer: 'Para questoes relacionadas com RGPD e protecao de dados, envie um email para privacidade@realestate-pt.com com o seu pedido especifico.'
+      question: 'Como exerço os meus direitos de proteção de dados?',
+      answer: 'Para questões relacionadas com RGPD e proteção de dados, envie um email para privacidade@realestate-pt.com com o seu pedido específico.'
     },
   ];
 
@@ -128,7 +128,7 @@ const Contact = () => {
             Contacte-nos
           </h1>
           <p className="text-xl text-primary-100 max-w-2xl mx-auto">
-            Estamos aqui para ajudar. Entre em contacto connosco e responderemos o mais brevemente possivel.
+            Estamos aqui para ajudar. Entre em contacto connosco e responderemos o mais brevemente possível.
           </p>
         </div>
       </div>
@@ -142,7 +142,7 @@ const Contact = () => {
                 Envie-nos uma Mensagem
               </h2>
               <p className="section-subtitle mb-8">
-                Preencha o formulario e entraremos em contacto consigo
+                Preencha o formulário e entraremos em contacto consigo
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -234,7 +234,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="input-field"
-                    placeholder="Resumo da sua questao"
+                    placeholder="Resumo da sua questão"
                   />
                 </div>
 
@@ -251,17 +251,17 @@ const Contact = () => {
                     required
                     rows={6}
                     className="input-field resize-none"
-                    placeholder="Descreva a sua questao em detalhe..."
+                    placeholder="Descreva a sua questão em detalhe..."
                   />
                 </div>
 
                 {/* Privacy Notice */}
                 <div className="text-sm text-gray-500 bg-sand-100 p-4 rounded-xl">
-                  Ao submeter este formulario, concorda com a nossa{' '}
+                  Ao submeter este formulário, concorda com a nossa{' '}
                   <Link to="/privacy" className="text-primary-600 hover:underline font-medium">
-                    Politica de Privacidade
+                    Política de Privacidade
                   </Link>
-                  . Os seus dados serao utilizados apenas para responder a sua mensagem.
+                  . Os seus dados serão utilizados apenas para responder à sua mensagem.
                 </div>
 
                 {/* Submit Button */}
@@ -294,7 +294,7 @@ const Contact = () => {
             {/* Contact Details */}
             <div className="card p-8">
               <h3 className="text-xl font-bold text-gray-900 mb-6">
-                Informacoes de Contacto
+                Informações de Contacto
               </h3>
 
               <div className="space-y-6">
@@ -335,7 +335,7 @@ const Contact = () => {
                     <FaClock className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Horario</h4>
+                    <h4 className="font-semibold text-gray-900">Horário</h4>
                     <p className="text-gray-600">Segunda a Sexta</p>
                     <p className="text-gray-600">09:00 - 18:00</p>
                   </div>
@@ -354,24 +354,24 @@ const Contact = () => {
                 </h4>
               </div>
               <p className="text-gray-600 text-sm">
-                Respondemos a todas as mensagens num prazo maximo de <strong className="text-primary-700">48 horas uteis</strong>.
-                Para questoes urgentes, contacte-nos por telefone.
+                Respondemos a todas as mensagens num prazo máximo de <strong className="text-primary-700">48 horas úteis</strong>.
+                Para questões urgentes, contacte-nos por telefone.
               </p>
             </div>
 
             {/* Data Protection Notice */}
             <div className="bg-gradient-to-br from-sand-100 to-sand-200 rounded-2xl p-6 border border-sand-300">
               <h4 className="font-semibold text-gray-900 mb-2">
-                Protecao de Dados
+                Proteção de Dados
               </h4>
               <p className="text-gray-600 text-sm mb-3">
-                Para questoes relacionadas com os seus dados pessoais ou exercer os seus direitos ao abrigo do RGPD:
+                Para questões relacionadas com os seus dados pessoais ou exercer os seus direitos ao abrigo do RGPD:
               </p>
               <p className="text-sm mb-2">
                 <strong>Email:</strong> privacidade@realestate-pt.com
               </p>
               <Link to="/privacy" className="text-primary-600 hover:text-primary-700 text-sm font-medium inline-flex items-center">
-                Ver Politica de Privacidade
+                Ver Política de Privacidade
                 <FaChevronDown className="ml-1 -rotate-90 text-xs" />
               </Link>
             </div>
@@ -382,7 +382,7 @@ const Contact = () => {
         <div className="mt-20">
           <div className="text-center mb-12">
             <h2 className="section-title">
-              Links Uteis
+              Links Úteis
             </h2>
             <p className="section-subtitle">
               Encontre rapidamente o que procura
@@ -412,7 +412,7 @@ const Contact = () => {
               Perguntas Frequentes
             </h2>
             <p className="section-subtitle">
-              Respostas rapidas as questoes mais comuns
+              Respostas rápidas às questões mais comuns
             </p>
           </div>
 
@@ -455,10 +455,10 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="card p-8">
             <h3 className="font-bold text-gray-900 text-xl mb-4">
-              Resolução Alternativa de Litigios
+              Resolução Alternativa de Litígios
             </h3>
             <p className="text-gray-600 mb-6">
-              Em conformidade com a legislação europeia e portuguesa, informamos que, em caso de litigio,
+              Em conformidade com a legislação europeia e portuguesa, informamos que, em caso de litígio,
               pode recorrer a uma entidade de resolução alternativa de litígios de consumo:
             </p>
             <div className="flex flex-wrap gap-4">

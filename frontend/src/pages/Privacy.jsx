@@ -14,7 +14,7 @@ const Privacy = () => {
           className="inline-flex items-center text-primary-600 hover:text-primary-700 hover:translate-x-[-4px] transition-all duration-200 mb-6 group"
         >
           <FaArrowLeft className="mr-2 group-hover:animate-pulse" />
-          Voltar ao Inicio
+          Voltar ao Início
         </Link>
 
         {/* Header Card */}
@@ -24,8 +24,8 @@ const Privacy = () => {
               <FaShieldAlt className="text-2xl" />
             </div>
             <div>
-              <h1 className="text-3xl font-display font-bold text-gray-900">Politica de Privacidade</h1>
-              <p className="text-gray-500">Ultima atualização: {lastUpdated}</p>
+              <h1 className="text-3xl font-display font-bold text-gray-900">Política de Privacidade</h1>
+              <p className="text-gray-500">Última atualização: {lastUpdated}</p>
             </div>
           </div>
 

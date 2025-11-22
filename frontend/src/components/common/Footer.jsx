@@ -34,7 +34,7 @@ const Footer = () => {
               </Link>
               <p className="text-gray-400 mb-6 leading-relaxed">
                 A sua plataforma de confiança para encontrar o imóvel perfeito em Portugal.
-                De Lisboa ao Porto, do Algarve aos Acores.
+                De Lisboa ao Porto, do Algarve aos Açores.
               </p>
 
               {/* Social Links */}
@@ -70,7 +70,7 @@ const Footer = () => {
                 <li>
                   <Link to="/agencies" className="text-gray-400 hover:text-primary-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Agencias
+                    Agências
                   </Link>
                 </li>
                 <li>

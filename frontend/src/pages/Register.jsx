@@ -276,7 +276,7 @@ const Register = () => {
                 <div className="w-full border-t border-gray-200"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Ja tem conta?</span>
+                <span className="px-2 bg-white text-gray-500">Já tem conta?</span>
               </div>
             </div>
 

@@ -29,7 +29,7 @@ const Agencies = () => {
       }
     } catch (error) {
       console.error('Error fetching agencies:', error);
-      toast.error('Erro ao carregar agencias');
+      toast.error('Erro ao carregar agências');
     } finally {
       setLoading(false);
     }
@@ -76,10 +76,10 @@ const Agencies = () => {
         {/* Header Section */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            Agencias Imobiliarias
+            Agências Imobiliárias
           </h1>
           <p className="text-gray-600 text-lg">
-            Conheca as melhores agencias de Portugal
+            Conheça as melhores agências de Portugal
           </p>
         </div>
 
@@ -148,7 +148,7 @@ const Agencies = () => {
               >
                 <option value="">Todas</option>
                 <option value="true">Apenas Verificadas</option>
-                <option value="false">Nao Verificadas</option>
+                <option value="false">Não Verificadas</option>
               </select>
             </div>
 
@@ -163,7 +163,7 @@ const Agencies = () => {
                 className="input-field w-full"
               >
                 <option value="name">Nome</option>
-                <option value="agents">N de Agentes</option>
+                <option value="agents">Nº de Agentes</option>
                 <option value="createdAt">Mais Recentes</option>
               </select>
             </div>
@@ -174,7 +174,7 @@ const Agencies = () => {
         <div className="mb-6">
           <p className="text-gray-600">
             <span className="font-semibold text-primary-600">{filteredAgencies.length}</span>{' '}
-            {filteredAgencies.length === 1 ? 'agencia encontrada' : 'agencias encontradas'}
+            {filteredAgencies.length === 1 ? 'agência encontrada' : 'agências encontradas'}
           </p>
         </div>
 
@@ -190,7 +190,7 @@ const Agencies = () => {
         ) : (
           <div className="card rounded-2xl text-center py-16">
             <FaBuilding className="text-6xl text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-600 text-lg mb-2">Nenhuma agencia encontrada</p>
+            <p className="text-gray-600 text-lg mb-2">Nenhuma agência encontrada</p>
             <p className="text-gray-500">Tente ajustar os filtros</p>
             <button
               onClick={clearFilters}

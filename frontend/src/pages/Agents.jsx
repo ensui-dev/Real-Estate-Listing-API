@@ -79,7 +79,7 @@ const Agents = () => {
             Agentes Imobiliários
           </h1>
           <p className="text-gray-600 text-lg">
-            Encontre agentes especializados para ajuda-lo
+            Encontre agentes especializados para ajudá-lo
           </p>
         </div>
 
@@ -147,7 +147,7 @@ const Agents = () => {
               >
                 <option value="">Todos</option>
                 <option value="true">Apenas Verificados</option>
-                <option value="false">Nao Verificados</option>
+                <option value="false">Não Verificados</option>
               </select>
             </div>
 

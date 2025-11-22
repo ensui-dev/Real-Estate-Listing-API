@@ -14,7 +14,7 @@ const Terms = () => {
           className="inline-flex items-center text-primary-600 hover:text-primary-700 hover:translate-x-[-4px] transition-all duration-200 mb-6 group"
         >
           <FaArrowLeft className="mr-2 group-hover:animate-pulse" />
-          Voltar ao Inicio
+          Voltar ao Início
         </Link>
 
         {/* Header Card */}
@@ -25,7 +25,7 @@ const Terms = () => {
             </div>
             <div>
               <h1 className="text-3xl font-display font-bold text-gray-900">Termos e Condições</h1>
-              <p className="text-gray-500">Ultima atualização: {lastUpdated}</p>
+              <p className="text-gray-500">Última atualização: {lastUpdated}</p>
             </div>
           </div>
 
@@ -43,7 +43,7 @@ const Terms = () => {
             <h2 className="text-xl font-display font-bold text-gray-900 mb-4">1. Definições</h2>
             <div className="prose max-w-none text-gray-700">
               <ul className="list-none space-y-3">
-                <li className="bg-sand-50 rounded-xl p-4"><strong>"Plataforma"</strong> refere-se ao website RealEstate PT, acessivel em lusitanestate.netlify.app e todos os seus subdomínios.</li>
+                <li className="bg-sand-50 rounded-xl p-4"><strong>"Plataforma"</strong> refere-se ao website RealEstate PT, acessível em lusitanestate.netlify.app e todos os seus subdomínios.</li>
                 <li className="bg-sand-50 rounded-xl p-4"><strong>"Utilizador"</strong> designa qualquer pessoa que aceda ou utilize a Plataforma, seja como visitante, comprador, vendedor, agente imobiliário ou agência.</li>
                 <li className="bg-sand-50 rounded-xl p-4"><strong>"Serviços"</strong> incluem todos os serviços disponibilizados através da Plataforma, nomeadamente a publicação, pesquisa e gestão de anúncios imobiliários.</li>
                 <li className="bg-sand-50 rounded-xl p-4"><strong>"Conteúdo"</strong> refere-se a toda a informação, textos, imagens, fotografias e outros materiais publicados na Plataforma.</li>

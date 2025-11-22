@@ -7,22 +7,22 @@ const Pricing = () => {
 
   const plans = [
     {
-      name: 'Basico',
+      name: 'Básico',
       subtitle: 'Para particulares',
-      price: 'Gratis',
+      price: 'Grátis',
       period: '',
       description: 'Ideal para quem quer vender ou arrendar um imóvel ocasionalmente.',
       features: [
-        { text: 'Ate 2 anuncios ativos', included: true },
-        { text: '5 fotografias por anuncio', included: true },
-        { text: 'Listagem basica', included: true },
+        { text: 'Até 2 anúncios ativos', included: true },
+        { text: '5 fotografias por anúncio', included: true },
+        { text: 'Listagem básica', included: true },
         { text: 'Contacto direto com interessados', included: true },
         { text: 'Suporte por email', included: true },
         { text: 'Destaque na pesquisa', included: false },
         { text: 'Estatísticas avançadas', included: false },
         { text: 'Selo de verificação', included: false },
       ],
-      cta: 'Comecar Gratis',
+      cta: 'Começar Grátis',
       ctaLink: '/register?role=seller',
       popular: false,
       icon: FaStar,
@@ -31,35 +31,35 @@ const Pricing = () => {
       name: 'Profissional',
       subtitle: 'Para agentes imobiliários',
       price: '29',
-      period: '/mes',
+      period: '/mês',
       description: 'Ferramentas profissionais para agentes licenciados AMI.',
       features: [
-        { text: 'Anuncios ilimitados', included: true },
-        { text: '20 fotografias por anuncio', included: true },
-        { text: 'Listagem prioritaria', included: true },
+        { text: 'Anúncios ilimitados', included: true },
+        { text: '20 fotografias por anúncio', included: true },
+        { text: 'Listagem prioritária', included: true },
         { text: 'Perfil de agente verificado', included: true },
         { text: 'Estatísticas detalhadas', included: true },
         { text: 'Destaque na pesquisa', included: true },
-        { text: 'Suporte prioritario', included: true },
-        { text: 'CRM basico integrado', included: true },
+        { text: 'Suporte prioritário', included: true },
+        { text: 'CRM básico integrado', included: true },
       ],
-      cta: 'Comecar Teste Gratis',
+      cta: 'Começar Teste Grátis',
       ctaLink: '/register?role=agent',
       popular: true,
       icon: FaRocket,
     },
     {
       name: 'Empresarial',
-      subtitle: 'Para agencias',
+      subtitle: 'Para agências',
       price: 'Personalizado',
       period: '',
-      description: 'Soluções completas para agencias e promotoras imobiliárias.',
+      description: 'Soluções completas para agências e promotoras imobiliárias.',
       features: [
         { text: 'Tudo do plano Profissional', included: true },
-        { text: 'Gestao de equipas', included: true },
+        { text: 'Gestão de equipas', included: true },
         { text: 'Marca personalizada', included: true },
         { text: 'API de integração', included: true },
-        { text: 'Relatorios avancados', included: true },
+        { text: 'Relatórios avançados', included: true },
         { text: 'Account manager dedicado', included: true },
         { text: 'Formação da equipa', included: true },
         { text: 'SLA garantido', included: true },
@@ -74,27 +74,27 @@ const Pricing = () => {
   const faqs = [
     {
       question: 'Posso experimentar antes de pagar?',
-      answer: 'Sim! O plano Profissional inclui um periodo de teste gratuito de 14 dias, sem necessidade de cartao de credito.'
+      answer: 'Sim! O plano Profissional inclui um período de teste gratuito de 14 dias, sem necessidade de cartão de crédito.'
     },
     {
       question: 'Posso mudar de plano a qualquer momento?',
-      answer: 'Absolutamente. Pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alterações sao aplicadas no proximo ciclo de faturação.'
+      answer: 'Absolutamente. Pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alterações são aplicadas no próximo ciclo de faturação.'
     },
     {
-      question: 'Quais sao os metodos de pagamento aceites?',
-      answer: 'Aceitamos cartoes de credito/debito (Visa, Mastercard), MB Way, transferencia bancaria e debito direto SEPA.'
+      question: 'Quais são os métodos de pagamento aceites?',
+      answer: 'Aceitamos cartões de crédito/débito (Visa, Mastercard), MB Way, transferência bancária e débito direto SEPA.'
     },
     {
-      question: 'Existe compromisso de permanencia?',
-      answer: 'Nao. Todos os nossos planos sao mensais e pode cancelar a qualquer momento sem penalizações.'
+      question: 'Existe compromisso de permanência?',
+      answer: 'Não. Todos os nossos planos são mensais e pode cancelar a qualquer momento sem penalizações.'
     },
     {
-      question: 'Os precos incluem IVA?',
-      answer: 'Os precos apresentados nao incluem IVA. Para clientes empresariais em Portugal, sera acrescido IVA a taxa legal em vigor (23%).'
+      question: 'Os preços incluem IVA?',
+      answer: 'Os preços apresentados não incluem IVA. Para clientes empresariais em Portugal, será acrescido IVA à taxa legal em vigor (23%).'
     },
     {
       question: 'Preciso de licença AMI para o plano Profissional?',
-      answer: 'Sim, o plano Profissional e destinado a agentes imobiliários licenciados. Verificamos o numero de licença AMI durante o registo.'
+      answer: 'Sim, o plano Profissional é destinado a agentes imobiliários licenciados. Verificamos o número de licença AMI durante o registo.'
     },
   ];
 
@@ -132,7 +132,7 @@ const Pricing = () => {
               Planos Para Cada Necessidade
             </h2>
             <p className="section-subtitle">
-              Desde particulares a grandes agencias, temos a solução certa para si
+              Desde particulares a grandes agências, temos a solução certa para si
             </p>
           </div>
 
@@ -168,7 +168,7 @@ const Pricing = () => {
 
                   <div className="mb-6">
                     <span className={`text-4xl font-bold ${plan.popular ? 'text-terracotta-600' : 'text-gray-900'}`}>
-                      {plan.price === 'Gratis' || plan.price === 'Personalizado'
+                      {plan.price === 'Grátis' || plan.price === 'Personalizado'
                         ? plan.price
                         : `€${plan.price}`}
                     </span>
@@ -236,23 +236,23 @@ const Pricing = () => {
               <thead>
                 <tr className="bg-gradient-to-r from-primary-600 to-primary-700">
                   <th className="py-5 px-6 text-left text-white font-medium">Funcionalidade</th>
-                  <th className="py-5 px-6 text-center text-white font-semibold">Basico</th>
+                  <th className="py-5 px-6 text-center text-white font-semibold">Básico</th>
                   <th className="py-5 px-6 text-center font-semibold bg-terracotta-500 text-white">Profissional</th>
                   <th className="py-5 px-6 text-center text-white font-semibold">Empresarial</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { feature: 'Numero de anuncios', basic: '2', pro: 'Ilimitado', enterprise: 'Ilimitado' },
-                  { feature: 'Fotografias por anuncio', basic: '5', pro: '20', enterprise: 'Ilimitado' },
-                  { feature: 'Videos', basic: '-', pro: '1 por anuncio', enterprise: 'Ilimitado' },
+                  { feature: 'Número de anúncios', basic: '2', pro: 'Ilimitado', enterprise: 'Ilimitado' },
+                  { feature: 'Fotografias por anúncio', basic: '5', pro: '20', enterprise: 'Ilimitado' },
+                  { feature: 'Vídeos', basic: '-', pro: '1 por anúncio', enterprise: 'Ilimitado' },
                   { feature: 'Visitas virtuais 360', basic: '-', pro: 'Sim', enterprise: 'Sim' },
                   { feature: 'Destaque na pesquisa', basic: '-', pro: 'Sim', enterprise: 'Premium' },
-                  { feature: 'Estatísticas', basic: 'Basicas', pro: 'Detalhadas', enterprise: 'Avançadas + API' },
-                  { feature: 'Selo de verificação', basic: '-', pro: 'Agente AMI', enterprise: 'Agencia' },
-                  { feature: 'Suporte', basic: 'Email', pro: 'Prioritario', enterprise: 'Dedicado 24/7' },
-                  { feature: 'CRM integrado', basic: '-', pro: 'Basico', enterprise: 'Completo' },
-                  { feature: 'Gestao de equipa', basic: '-', pro: '-', enterprise: 'Sim' },
+                  { feature: 'Estatísticas', basic: 'Básicas', pro: 'Detalhadas', enterprise: 'Avançadas + API' },
+                  { feature: 'Selo de verificação', basic: '-', pro: 'Agente AMI', enterprise: 'Agência' },
+                  { feature: 'Suporte', basic: 'Email', pro: 'Prioritário', enterprise: 'Dedicado 24/7' },
+                  { feature: 'CRM integrado', basic: '-', pro: 'Básico', enterprise: 'Completo' },
+                  { feature: 'Gestão de equipa', basic: '-', pro: '-', enterprise: 'Sim' },
                   { feature: 'API de integração', basic: '-', pro: '-', enterprise: 'Sim' },
                   { feature: 'White-label', basic: '-', pro: '-', enterprise: 'Sim' },
                 ].map((row, index) => (
@@ -285,7 +285,7 @@ const Pricing = () => {
               Perguntas Frequentes
             </h2>
             <p className="section-subtitle">
-              Tem duvidas? Encontre as respostas abaixo
+              Tem dúvidas? Encontre as respostas abaixo
             </p>
           </div>
 
@@ -334,10 +334,10 @@ const Pricing = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ainda tem duvidas?
+            Ainda tem dúvidas?
           </h2>
           <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
-            A nossa equipa esta disponivel para ajudar a encontrar a melhor solução para si.
+            A nossa equipa está disponível para ajudar a encontrar a melhor solução para si.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
@@ -362,9 +362,9 @@ const Pricing = () => {
           <div className="flex flex-wrap justify-center items-center gap-8">
             {[
               'Pagamento Seguro',
-              'Cancelamento Facil',
+              'Cancelamento Fácil',
               'Sem Compromisso',
-              'Suporte em Portugues'
+              'Suporte em Português'
             ].map((badge, index) => (
               <div key={index} className="flex items-center bg-sand-50 px-4 py-2 rounded-full">
                 <div className="bg-green-100 p-1 rounded-full mr-2">

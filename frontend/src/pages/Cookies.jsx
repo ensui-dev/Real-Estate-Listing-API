@@ -14,7 +14,7 @@ const Cookies = () => {
           className="inline-flex items-center text-primary-600 hover:text-primary-700 hover:translate-x-[-4px] transition-all duration-200 mb-6 group"
         >
           <FaArrowLeft className="mr-2 group-hover:animate-pulse" />
-          Voltar ao Inicio
+          Voltar ao Início
         </Link>
 
         {/* Header Card */}
@@ -24,8 +24,8 @@ const Cookies = () => {
               <FaCookieBite className="text-2xl" />
             </div>
             <div>
-              <h1 className="text-3xl font-display font-bold text-gray-900">Politica de Cookies</h1>
-              <p className="text-gray-500">Ultima atualização: {lastUpdated}</p>
+              <h1 className="text-3xl font-display font-bold text-gray-900">Política de Cookies</h1>
+              <p className="text-gray-500">Última atualização: {lastUpdated}</p>
             </div>
           </div>
 
@@ -210,7 +210,7 @@ const Cookies = () => {
 
               {/* Analytics Cookies */}
               <h3 className="text-lg font-display font-semibold text-gray-800 mt-6 mb-3 flex items-center">
-                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs mr-2">ANALITICOS</span>
+                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs mr-2">ANALÍTICOS</span>
                 Cookies de Análise
               </h3>
               <p className="mb-4">

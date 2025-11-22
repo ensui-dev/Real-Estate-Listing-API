@@ -73,7 +73,7 @@ const Home = () => {
 
               <p className="text-xl text-primary-100 mb-10 max-w-xl mx-auto lg:mx-0">
                 A plataforma de confiança para compra, venda e arrendamento de imóveis.
-                De Lisboa ao Algarve, do Porto aos Acores.
+                De Lisboa ao Algarve, do Porto aos Açores.
               </p>
 
               {/* CTA Buttons */}
@@ -209,7 +209,7 @@ const Home = () => {
             ?
           </h2>
           <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
-            Junte-se a milhares de portugueses que ja encontraram o imóvel dos seus sonhos.
+            Junte-se a milhares de portugueses que já encontraram o imóvel dos seus sonhos.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
@@ -233,7 +233,7 @@ const Home = () => {
       <section className="py-12 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center items-center gap-8 text-gray-400">
-            <span className="text-sm font-medium">De Confianca por:</span>
+            <span className="text-sm font-medium">De Confiança por:</span>
             <div className="flex items-center space-x-2">
               <FaShieldAlt className="text-primary-500" />
               <span className="text-gray-600 font-medium">AMI Certificado</span>

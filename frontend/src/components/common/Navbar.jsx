@@ -78,7 +78,7 @@ const Navbar = () => {
                     : 'text-gray-600 hover:bg-gray-50 hover:text-primary-600'
                 }`}
               >
-                Agencias
+                Agências
               </Link>
               <Link
                 to="/agents"
@@ -205,7 +205,7 @@ const Navbar = () => {
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Agencias
+                Agências
               </Link>
               <Link
                 to="/agents"
